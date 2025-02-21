@@ -23,8 +23,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-20 bg-navbg text-white">
-        <nav className="max-w-[1240px] mx-auto px-6 pb-4 border-b border-gray-800">
+      <header className="fixed top-0 left-0 w-full z-20 bg-navbg border-b border-gray-800">
+        <nav className="max-w-[1240px] mx-auto px-6 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
               <h1 className="text-2xl font-semibold">Navbar</h1>
@@ -51,17 +51,25 @@ const Navbar = () => {
               <button
                 type="button"
                 className="cursor-pointer flex items-center gap-1"
-                onClick={() => setDropdownOpen(true)}
+                onClick={() => setDropdownOpen((prev) => !prev)}
               >
                 <User className="size-7" />
                 <span className="hidden md:block ntext-md">Perfil</span>
               </button>
+              {/*  oignore lint/style/useSelfClosingElements: <explanation> */}
               <DropdownRoot
                 openDo={openDropdown}
                 setDropdownOpen={setDropdownOpen}
               >
                 <DropdownBody>
-                  <li>aa</li>
+                  <ul className="space-y-2  w-full">
+                    <li className="px-4 py-2 text-gray-400 hover:bg-gray-800 rounded-t-xl cursor-pointer">
+                      <Link href="/profile">Editar Informações</Link>
+                    </li>
+                    <li className="px-4 py-2 text-gray-400 hover:bg-gray-800 rounded-b-xl cursor-pointer">
+                      <Link href="/profile">Sair</Link>
+                    </li>
+                  </ul>
                 </DropdownBody>
               </DropdownRoot>
               {/* biome-ignore lint/a11y/useButtonType: <explanation> */}

@@ -16,7 +16,7 @@ export function DropdownRoot({
       {...props}
       aria-hidden={!openDo}
       onClick={() => setDropdownOpen(false)}
-      className="bg-navbg rounded-xl border absolute mt-25 border-gray-700 shadow-lg w-full max-w-[100px] right-0"
+      className="bg-navbg rounded-xl border absolute mt-12 top-0 border-gray-700 shadow-lg w-[230px] right-0"
     />
   );
 }
@@ -37,7 +37,11 @@ interface DropdownBodyProps extends ComponentProps<"div"> {}
 
 export function DropdownBody(props: DropdownBodyProps) {
   return (
-    <div onClick={(e) => e.stopPropagation()} {...props} className="pb-3" />
+    <div
+      onClick={(e) => e.stopPropagation()}
+      {...props}
+      className=" flex list-none justify-center flex-col"
+    />
   );
 }
 
