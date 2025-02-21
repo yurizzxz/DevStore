@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { X, Menu, Search } from "lucide-react";
+import { InputRoot, InputField, InputIcon } from "../ui/input";
 
 interface Links {
   href: string;
@@ -18,48 +20,55 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed w-full text-white">
-        <nav className="max-w-[1240px] mx-auto py-8 md:py-0 w-full flex justify-between items-center px-6">
+      <header className="fixed top-0 left-0 w-full z-20 bg-navbg text-white">
+        <nav className="max-w-[1240px] mx-auto py-4 md:py-4 w-full flex justify-between items-center px-6">
           <h1 className="text-2xl font-semibold">Navbar</h1>
 
-          <ul className="hidden md:flex space-x-8">
-            {Links.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-white hover:text-gray-400 transition-colors duration-200"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
+          <div className="flex items-center space-x-8">
+            <ul className="hidden md:flex space-x-5 items-center">
+              {Links.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-white hover:text-gray-400 transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <InputRoot>
+              <InputField type="text" placeholder="Search" />
+              <InputIcon>
+                <Search></Search>
+              </InputIcon>
+            </InputRoot>
+          </div>
           <button
             className="md:hidden text-white"
             aria-label="Abrir menu"
             onClick={() => setIsOpen(true)}
           >
-            <i className="material-icons">menu</i>
+            <Menu className="size-7" />
           </button>
         </nav>
       </header>
 
       <aside
-        className={`fixed top-0 left-0 w-3/4 h-full bg-gray-800 text-white transform transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 left-0 w-3/4 z-50 h-full bg-navbg  transition-transform duration-300 ease-in-out md:hidden transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         aria-hidden={!isOpen}
       >
         <button
-          className="absolute top-4 right-4 text-white"
+          className="absolute top-7 right-4 "
           aria-label="Fechar menu"
           onClick={() => setIsOpen(false)}
         >
-          <i className="material-icons">close</i>
+          <X className="size-7" />
         </button>
 
-        <ul className="flex flex-col items-center space-y-6 mt-16">
+        <ul className="flex flex-col ml-5 space-y-6 mt-24">
           {Links.map((link, index) => (
             <li key={index}>
               <a
@@ -75,7 +84,7 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-10"
+          className="fixed inset-0 bg-black opacity-50 z-20"
           onClick={() => setIsOpen(false)}
           role="button"
           tabIndex={0}

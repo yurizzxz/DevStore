@@ -1,0 +1,17 @@
+{
+    "editor.defaultFormatter": "<other formatter>",
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActionsOnSave": {
+        "quickfix": "explicit",
+        "source.organizeImports.biome": "explicit" 
+    },
+    "editor.formatOnSave": true
+}

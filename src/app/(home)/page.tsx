@@ -1,11 +1,13 @@
-import Cards from "@/components/Cards";
+import CardList from "@/components/Cards";
+
 
 export default function Home() {
+  
   return (
-    <main className="pt-20">
-        <div>Hello world!</div>
-
-        <Cards />
+    <main className="min-h-dvh pt-16">
+      <div className="">
+        <CardList />
+      </div>
     </main>
   );
 }
