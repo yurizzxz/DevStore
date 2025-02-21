@@ -24,7 +24,7 @@ export function ModalContent(props: ModalContentProps) {
     <div
       onClick={(e) => e.stopPropagation()}
       {...props}
-      className="bg-navbg rounded-xl shadow-lg w-full max-w-[600px] "
+      className="bg-navbg rounded-xl border border-gray-700 shadow-lg w-full max-w-[600px] "
     />
   );
 }

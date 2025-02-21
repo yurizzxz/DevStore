@@ -1,9 +1,10 @@
 "use client";
 
 import CartList from "@/components/ui/cart-list";
-import { Menu, Search, ShoppingCart, X } from "lucide-react";
+import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { DropdownBody, DropdownRoot } from "../ui/dropdown-menu";
 import { InputField, InputIcon, InputRoot } from "../ui/input";
 import {
   ModalBody,
@@ -11,7 +12,6 @@ import {
   ModalHeader,
   ModalRoot,
 } from "../ui/modal-menu";
-import SocialIcons from "../ui/network-icons";
 import NavLinks from "./nav-links";
 
 const Navbar = () => {
@@ -19,20 +19,27 @@ const Navbar = () => {
 
   const [openMo, setOm] = useState<boolean>(false);
 
+  const [openDropdown, setDropdownOpen] = useState<boolean>(false);
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-20 bg-navbg text-white">
-        <nav className="max-w-[1240px] mx-auto px-6 pb-4">
-          <div className="py-4 w-full flex justify-between items-center ">
-            <div className="hidden md:flex items-center space-x-4">
-              <SocialIcons />
-            </div>
-
+        <nav className="max-w-[1240px] mx-auto px-6 pb-4 border-b border-gray-800">
+          <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
-              <h1 className="text-2xl font-semibold md:mx-auto">Navbar</h1>
+              <h1 className="text-2xl font-semibold">Navbar</h1>
             </Link>
 
-            <div className="flex items-center space-x-5 md:space-x-0">
+            <div className="hidden md:flex px-12 mt-2 w-full">
+              <InputRoot>
+                <InputIcon>
+                  <Search />
+                </InputIcon>
+                <InputField placeholder="O que você procura?" />
+              </InputRoot>
+            </div>
+
+            <div className="relative flex items-center space-x-3 md:gap-4 md:space-x-0">
               <button
                 type="button"
                 className="cursor-pointer flex items-center gap-3"
@@ -41,6 +48,22 @@ const Navbar = () => {
                 <ShoppingCart className="size-7" />
                 <span className="hidden md:block ntext-md">Carrinho</span>
               </button>
+              <button
+                type="button"
+                className="cursor-pointer flex items-center gap-1"
+                onClick={() => setDropdownOpen(true)}
+              >
+                <User className="size-7" />
+                <span className="hidden md:block ntext-md">Perfil</span>
+              </button>
+              <DropdownRoot
+                openDo={openDropdown}
+                setDropdownOpen={setDropdownOpen}
+              >
+                <DropdownBody>
+                  <li>aa</li>
+                </DropdownBody>
+              </DropdownRoot>
               {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
               <button
                 className="md:hidden text-white"
@@ -51,8 +74,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-
-          <div className="pb-0 md:pb-3 ">
+          <div className="flex md:hidden py-2 w-full">
             <InputRoot>
               <InputIcon>
                 <Search />

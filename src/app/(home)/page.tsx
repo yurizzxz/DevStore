@@ -26,7 +26,7 @@ const cardData = [
 
 export default function Home() {
   return (
-    <main className="min-h-dvh pt-55">
+    <main className="min-h-dvh pt-35 md:pt-55">
       <Section
         title="Produtos em Destaque"
         description="Confira nossos produtos em destaque"

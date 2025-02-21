@@ -8,7 +8,7 @@ export function InputRoot({ error = false, ...props }: InputRoot) {
   return (
     <div
       data-error={error}
-      className="group transition-all bg-gray-800 h-12 border border-gray-600 rounded-xl px-4 flex items-center gap-3 focus-within:border-gray-100 data-[error=true]:border-red-500"
+      className="group transition-all w-full bg-gray-800 h-12 border border-gray-600 rounded-xl px-4 flex items-center gap-3 focus-within:border-gray-100 data-[error=true]:border-red-500"
       {...props}
     />
   );
