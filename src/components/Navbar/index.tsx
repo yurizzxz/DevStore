@@ -2,6 +2,7 @@
 
 import CartList from "@/components/ui/cart-list";
 import { Menu, Search, ShoppingCart, X } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { InputField, InputIcon, InputRoot } from "../ui/input";
 import {
@@ -27,7 +28,9 @@ const Navbar = () => {
               <SocialIcons />
             </div>
 
-            <h1 className="text-2xl font-semibold md:mx-auto">Navbar</h1>
+            <Link href="/">
+              <h1 className="text-2xl font-semibold md:mx-auto">Navbar</h1>
+            </Link>
 
             <div className="flex items-center space-x-5 md:space-x-0">
               <button
