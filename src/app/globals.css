@@ -9,8 +9,9 @@
 @theme {
   --color-*: initial;
 
-  --color-purple: #9871F3;
+  --color-purple: #7238F7;
   --color-purple-bold: #5500FF;
+  --color-purple-hover: #37008A;
 
   --color-danger: #F05D6C;
 

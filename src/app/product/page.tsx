@@ -1,18 +1,21 @@
+import { ButtonPrimary, ButtonSecondary } from "@/components/ui/button";
+import { ShoppingBag, ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
+import { Counter } from "./couter";
 
 const productLabel = [
   {
     id: 1,
-    name: "NotebookGamer",
+    name: "Notebook Acer Nitro V15 ANV15-51-73E9 Intel Core i7-13620H, 16GB RAM, 512GB SSD, NVIDIA RTX 3050, 15.6 LED Full HD 144Hz, Linux Gutta",
     description: "Descrição do produto",
     image: "/1.jpeg",
-    price: "100",
+    price: "3899,90",
   },
 ];
 
 export default function Product() {
   return (
-    <div className="min-h-dvh py-8 pt-45 ">
+    <main className="min-h-dvh py-8 pt-45 ">
       <p>Produtos</p>
       <div className="mt-8 flex flex-col md:flex-row gap-10 items-center md:items-start">
         {productLabel.map((item) => (
@@ -47,31 +50,49 @@ export default function Product() {
                 />
               </div>
             </div>
-            <div className="w-full md:w-1/2 flex flex-col gap-4">
-              <h1 className="text-3xl font-semibold">{item.name}</h1>
-              <p className="text-lg text-gray-400">{item.description}</p>
-              <p className="text-2xl font-semibold text-green-600">
-                R${item.price}
-              </p>
+            <div className="w-full md:w-1/2 flex flex-col">
+              <div className="mb-2">
+                <div className="mb-4 flex flex-col">
+                  <h1 className="text-3xl font-semibold">{item.name}</h1>
+                  <div className="flex items-center mt-4 gap-1.5">
+                    <Star className="size-7 cursor-pointer" />
+                    <Star className="size-7 cursor-pointer" />
+                    <Star className="size-7 cursor-pointer" />
+                    <Star className="size-7 cursor-pointer" />
+                    <Star className="size-7 cursor-pointer" />
 
-              <div className="flex flex-col gap-4">
-                <button
-                  type="button"
-                  className="px-6 py-3 bg-gray-600 rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
-                >
-                  Adicionar ao Carrinho
-                </button>
-                <button
-                  type="button"
-                  className="px-6 py-3 bg-purple-bold rounded-lg shadow-md hover:bg-green-700 transition duration-300"
-                >
-                  Comprar Agora
-                </button>
+                    <span className="text-md text-gray-200 ml-2">(0)</span>
+                  </div>
+                </div>
+                <p className="text-5xl font-bold text-purple text-green-600">
+                  R${item.price}
+                </p>
+              </div>
+
+              <div className="flex mt-auto flex-col gap-2">
+                <div className="mb-3">
+                  <Counter />
+                </div>
+                <div className="flex flex-row gap-3">
+                  <ButtonSecondary
+                    className="gap-3 justify-center"
+                    type="button"
+                  >
+                    <ShoppingCart />
+                  </ButtonSecondary>
+                  <ButtonPrimary
+                    className="gap-2 w-full justify-center"
+                    type="button"
+                  >
+                    <ShoppingBag />
+                    Comprar agora
+                  </ButtonPrimary>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

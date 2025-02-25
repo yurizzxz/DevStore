@@ -14,8 +14,8 @@ interface CardListProps {
 const Cards = ({ title, description, image }: CardProps) => {
   return (
     <Link href="/product">
-      <div className="bg-navbg border border-gray-900 max-w-[240px] rounded-xl my-4 cursor-pointer flex flex-col h-auto">
-        <Image alt={title} width={250} height={120} src={image} />
+      <div className="bg-navbg border border-gray-900 w-[250px] rounded-xl my-4 cursor-pointer flex flex-col h-[380px]">
+        <Image alt={title} width={250} height={250} src={image} />
         <div className="card-content p-4 gap-2 flex flex-col flex-grow">
           <h2 className="card-title text-xl font-semibold line-clamp-2">
             {title}
