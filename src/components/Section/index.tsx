@@ -28,7 +28,7 @@ export default function Section({
             <Link href={seeAllLink}>
               <span className="bg-gray-900 flex items-center justify-between mt-3 md:mt-0 px-5 py-3 rounded-xl transition-all text-purple cursor-pointer w-full hover:bg-gray-800">
                 <span>{seeAllText}</span>
-                <ChevronRight className="ml-2" />
+                <ChevronRight className="ml-2 size-5 mt-0.5" />
               </span>
             </Link>
           )}

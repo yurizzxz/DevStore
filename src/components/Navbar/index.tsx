@@ -4,7 +4,7 @@ import CartList from "@/components/ui/cart-list";
 import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { DropdownBody, DropdownRoot } from "../ui/dropdown-menu";
+import { DropdownBody, DropdownLink, DropdownRoot } from "../ui/dropdown-menu";
 import { InputField, InputIcon, InputRoot } from "../ui/input";
 import {
   ModalBody,
@@ -62,14 +62,8 @@ const Navbar = () => {
                 setDropdownOpen={setDropdownOpen}
               >
                 <DropdownBody>
-                  <ul className="space-y-2  w-full">
-                    <li className="px-4 py-2 text-gray-400 hover:bg-gray-800 rounded-t-xl cursor-pointer">
-                      <Link href="/profile">Editar Informações</Link>
-                    </li>
-                    <li className="px-4 py-2 text-gray-400 hover:bg-gray-800 rounded-b-xl cursor-pointer">
-                      <Link href="/profile">Sair</Link>
-                    </li>
-                  </ul>
+                  <DropdownLink href="#">Perfil</DropdownLink>
+                  <DropdownLink href="#">Sair</DropdownLink>
                 </DropdownBody>
               </DropdownRoot>
               {/* biome-ignore lint/a11y/useButtonType: <explanation> */}

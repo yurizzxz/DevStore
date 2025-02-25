@@ -5,16 +5,15 @@ interface CardProps {
   title: string;
   description: string;
   image: string;
-  link: string;
 }
 
 interface CardListProps {
   cards: CardProps[];
 }
 
-const Cards = ({ title, description, image, link }: CardProps) => {
+const Cards = ({ title, description, image }: CardProps) => {
   return (
-    <Link href={link} target="_blank" rel="noreferrer">
+    <Link href="/product">
       <div className="bg-navbg border border-gray-900 max-w-[240px] rounded-xl my-4 cursor-pointer flex flex-col h-auto">
         <Image alt={title} width={250} height={120} src={image} />
         <div className="card-content p-4 gap-2 flex flex-col flex-grow">
@@ -40,7 +39,6 @@ const CardList = ({ cards }: CardListProps) => {
           title={card.title}
           description={card.description}
           image={card.image}
-          link={card.link}
         />
       ))}
     </div>

@@ -19,16 +19,13 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
-          // biome-ignore lint/a11y/useValidLang: <explanation>
         />
       </head>
 
       <body className="bg-black text-[#f5eeff]">
         <main>
           <Navbar />
-          <div className="max-w-[1240] mx-auto px-6 py-8 md:py-0">
-            {children}
-          </div>
+          <div className="max-w-[1240] mx-auto px-6  md:py-0">{children}</div>
         </main>
       </body>
     </html>
