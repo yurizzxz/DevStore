@@ -1,6 +1,6 @@
 import CardList from "@/components/Cards";
 import Section from "@/components/Section";
-import Divisor from "./divisor";
+import Divisor from "@/components/ui/divisor";
 
 export default function Home() {
   return (
@@ -10,16 +10,14 @@ export default function Home() {
         description="Confira nossos produtos em destaque"
         seeAllLink="/produtos"
       >
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="gap-3 w-full" children={undefined} />{" "}
+        <CardList className="gap-3 w-full" children />{" "}
       </Section>
       <Divisor className="my-15" />
       <Section
         title={"Promoções do dia"}
         description="Confira nossos produtos do dia"
       >
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="gap-3 w-full" children={undefined} />{" "}
+        <CardList className="gap-3 w-full" children />{" "}
       </Section>
     </main>
   );

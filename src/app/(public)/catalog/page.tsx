@@ -4,7 +4,7 @@ export default function Catalog() {
   return (
     <main className="min-h-dvh py-8 pt-45">
       <div className="flex flex-row gap-4">
-        <aside className="w-3/5 bg-navbg p-4 rounded-2xl shadow-lg">
+        {/*   <aside className="w-2/6 bg-navbg p-4 rounded-2xl shadow-lg">
           <h2 className="text-xl font-bold mb-4">Filtros</h2>
           <div>
             <label className="block mb-2">
@@ -18,9 +18,12 @@ export default function Catalog() {
             </label>
           </div>
         </aside>
+        */}
 
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="gap-3 w-full" children={undefined} />
+        <div>
+          <h1 className="text-4xl mb-3 font-bold">Catálogo</h1>
+          <CardList className="space-x-3 flex-wrap" children />
+        </div>
       </div>
     </main>
   );

@@ -6,9 +6,12 @@
   }
 }
 
+
+
 @theme {
   --color-*: initial;
 
+  --color-gold: #FFB300;
   --color-purple: #7238F7;
   --color-purple-bold: #5500FF;
   --color-purple-hover: #37008A;
