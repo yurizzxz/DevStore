@@ -1,10 +1,10 @@
+import CardList from "@/components/Cards";
+import Section from "@/components/Section";
 import { ButtonPrimary, ButtonSecondary } from "@/components/ui/button";
+import Divisor from "@/components/ui/divisor";
 import { Plus, ShoppingBag, ShoppingCart, Star, Truck } from "lucide-react";
 import Image from "next/image";
-import { Counter } from "./couter";
-import Section from "@/components/Section";
-import CardList from "@/components/Cards";
-import Divisor from "@/components/ui/divisor";
+import { Counter } from "../couter";
 
 const productLabel = [
   {
@@ -111,6 +111,7 @@ export default function Product() {
       </div>
       <Divisor className="mt-30 mb-20" />
       <Section title="Talvez você goste">
+        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
         <CardList children className="gap-3" />
       </Section>
     </main>

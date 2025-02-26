@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "seed": "node --loader ts-node/esm prisma/seed.ts"
+    "seed": "node --loader ts-node/esm prisma/seed.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -15,6 +15,7 @@
   "dependencies": {
     "@biomejs/biome": "^1.9.4",
     "@prisma/client": "^6.4.1",
+    "@supabase/supabase-js": "^2.49.1",
     "@tailwindcss/postcss": "^4.0.7",
     "lucide-react": "^0.475.0",
     "next": "15.1.7",

@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps } from "react";
@@ -51,7 +52,7 @@ export default function CardList({ className }: CardProps) {
     <div className={twMerge("flex", className)}>
       {cardData.map((card, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-        <Link href="/product" key={index}>
+        <Link href="/product/${card.id}" key={index}>
           <div className="bg-navbg border border-gray-900 w-[250px] h-[380px] rounded-xl my-4 cursor-pointer flex flex-col ">
             <div className="w-[250px] h-[250px] overflow-hidden rounded-t-xl">
               <Image
@@ -66,6 +67,15 @@ export default function CardList({ className }: CardProps) {
               <h2 className="card-title text-xl font-semibold line-clamp-2">
                 {card.title}
               </h2>
+              <div className="flex items-center gap-0.5">
+                <Star className="size-4 cursor-pointer text-gold" />
+                <Star className="size-4 cursor-pointer" />
+                <Star className="size-4 cursor-pointer" />
+                <Star className="size-4 cursor-pointer" />
+                <Star className="size-4 cursor-pointer" />
+
+                <span className="text-xs text-gray-200 ml-2">(0)</span>
+              </div>
               <p className="card-description text-2xl text-purple font-bold break-words line-clamp-2">
                 R$ {card.price.toFixed(2)}
               </p>
