@@ -6,7 +6,9 @@ import { useState } from "react";
 export function Counter() {
   const [count, setCount] = useState<number>(0);
 
-  const increase = (): void => setCount(count + 1);
+  const increase = (): void => {
+    if (count < 2) setCount(count + 1);
+  };
   const decrease = (): void => {
     if (count > 0) setCount(count - 1);
   };

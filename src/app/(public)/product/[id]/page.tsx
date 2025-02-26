@@ -42,7 +42,7 @@ export default function Product() {
                   className="w-full h-auto object-cover rounded-xl"
                 />
               </div>
-              <div className="w-full order-1 md:order-2 max-w-[600px]">
+              <div className="w-full order-1 md:order-2 max-w-[620px]">
                 <Image
                   alt={item.name}
                   src={item.image}
