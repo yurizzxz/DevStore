@@ -14,21 +14,21 @@ export function Counter() {
   return (
     <div className="flex flex-col gap-2">
       <h1 className="text-lg">Quantidade: </h1>
-      <div className="flex items-center gap-2 w-fit rounded-xl bg-gray-600">
+      <div className="flex items-center px-2 py-2 gap-2 w-fit rounded-xl bg-gray-600">
         {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
         <button
           onClick={decrease}
-          className="px-2 py-2  text-white rounded-lg cursor-pointer"
+          className="  text-white rounded-lg cursor-pointer"
         >
-          <ChevronLeft />
+          <ChevronLeft className="size-5" />
         </button>
-        <span className="text-xl">{count}</span>
+        <span className="text-xl mx-2">{count}</span>
         {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
         <button
           onClick={increase}
-          className="px-2 py-2 bg-gray-600 text-white rounded-lg cursor-pointer"
+          className=" bg-gray-600 text-white rounded-lg cursor-pointer"
         >
-          <ChevronRight />
+          <ChevronRight className="size-5" />
         </button>
       </div>
     </div>

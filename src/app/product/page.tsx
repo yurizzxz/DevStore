@@ -1,5 +1,5 @@
 import { ButtonPrimary, ButtonSecondary } from "@/components/ui/button";
-import { ShoppingBag, ShoppingCart, Star } from "lucide-react";
+import { Plus, ShoppingBag, ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
 import { Counter } from "./couter";
 
@@ -9,7 +9,7 @@ const productLabel = [
     name: "Notebook Acer Nitro V15 ANV15-51-73E9 Intel Core i7-13620H, 16GB RAM, 512GB SSD, NVIDIA RTX 3050, 15.6 LED Full HD 144Hz, Linux Gutta",
     description: "Descrição do produto",
     image: "/1.jpeg",
-    price: "3899,90",
+    price: 3899.95,
   },
 ];
 
@@ -67,6 +67,16 @@ export default function Product() {
                 <p className="text-5xl font-bold text-purple text-green-600">
                   R${item.price}
                 </p>
+                <p className="text-md text-gray-300 mt-2 ml-0.5">
+                  À vista no pix com <b>10% de desconto</b>
+                </p>
+                <p className="text-md text-gray-300 mt-2 ml-0.5">
+                  Em até <b>R$ {(productLabel[0].price / 10).toFixed(2)}</b> em
+                  10x sem juros no cartão
+                </p>
+                <p className="text-md text-gray-300 mt-2 ml-0.5">
+                  Ou 1x no cartão com <b>10% de desconto</b>
+                </p>
               </div>
 
               <div className="flex mt-auto flex-col gap-2">
@@ -75,10 +85,11 @@ export default function Product() {
                 </div>
                 <div className="flex flex-row gap-3">
                   <ButtonSecondary
-                    className="gap-3 justify-center"
+                    className="gap-3 justify-center relative"
                     type="button"
                   >
-                    <ShoppingCart />
+                    <ShoppingCart className="mr-2" />
+                    <Plus className="size-4 absolute top-2 right-4" />
                   </ButtonSecondary>
                   <ButtonPrimary
                     className="gap-2 w-full justify-center"
