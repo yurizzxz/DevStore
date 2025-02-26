@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -10,6 +10,7 @@ generator client {
 model Produto {
   id          Int      @id @default(autoincrement())
   nome        String
+  description String
   foto        String
   categoriaId Int
   categoria   Categoria @relation(fields: [categoriaId], references: [id])
