@@ -52,7 +52,12 @@ export default function CardList({ className }: CardProps) {
     <div className={twMerge("flex", className)}>
       {cardData.map((card, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-        <Link href="/product/${card.id}" key={index}>
+        <Link
+          href={`/product/${card.id}?title=${encodeURIComponent(
+            card.title
+          )}&image=${encodeURIComponent(card.image)}&price=${card.price}`}
+          key={index}
+        >
           <div className="bg-navbg border border-gray-900 w-[250px] h-[380px] rounded-xl my-4 cursor-pointer flex flex-col ">
             <div className="w-[250px] h-[250px] overflow-hidden rounded-t-xl">
               <Image
@@ -69,10 +74,10 @@ export default function CardList({ className }: CardProps) {
               </h2>
               <div className="flex items-center gap-0.5">
                 <Star className="size-4 cursor-pointer text-gold" />
-                <Star className="size-4 cursor-pointer" />
-                <Star className="size-4 cursor-pointer" />
-                <Star className="size-4 cursor-pointer" />
-                <Star className="size-4 cursor-pointer" />
+                <Star className="size-4 cursor-pointer text-gray-500" />
+                <Star className="size-4 cursor-pointer text-gray-500" />
+                <Star className="size-4 cursor-pointer text-gray-500" />
+                <Star className="size-4 cursor-pointer text-gray-500" />
 
                 <span className="text-xs text-gray-200 ml-2">(0)</span>
               </div>

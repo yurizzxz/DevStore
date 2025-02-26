@@ -26,9 +26,9 @@ export default function Section({
           </div>
           {seeAllLink && (
             <Link href={seeAllLink}>
-              <span className="bg-gray-900 flex items-center justify-between mt-3 md:mt-0 px-5 py-3 rounded-xl transition-all text-purple cursor-pointer w-full hover:bg-gray-800">
-                <span>{seeAllText}</span>
-                <ChevronRight className="ml-2 size-5 mt-0.5" />
+              <span className="bg-gray-900 flex items-center justify-center mt-3 md:mt-0 px-4 py-3 rounded-xl transition-all text-purple cursor-pointer w-full hover:bg-gray-800">
+                <span className="font-semibold text-sm ml-1">{seeAllText}</span>
+                <ChevronRight className="ml-2 size-4" />
               </span>
             </Link>
           )}

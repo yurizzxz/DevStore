@@ -8,7 +8,7 @@ export default function Home() {
       <Section
         title="Produtos em Destaque"
         description="Confira nossos produtos em destaque"
-        seeAllLink="/produtos"
+        seeAllLink="/catalog/{id}"
       >
         {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
         <CardList className="gap-3 w-full" children />{" "}

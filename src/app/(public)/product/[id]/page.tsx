@@ -58,10 +58,10 @@ export default function Product() {
                   <h1 className="text-3xl font-semibold">{item.name}</h1>
                   <div className="flex items-center mt-4 gap-1.5">
                     <Star className="size-7 cursor-pointer text-gold" />
-                    <Star className="size-7 cursor-pointer" />
-                    <Star className="size-7 cursor-pointer" />
-                    <Star className="size-7 cursor-pointer" />
-                    <Star className="size-7 cursor-pointer" />
+                    <Star className="size-7 cursor-pointer text-gray-500" />
+                    <Star className="size-7 cursor-pointer text-gray-500" />
+                    <Star className="size-7 cursor-pointer text-gray-500" />
+                    <Star className="size-7 cursor-pointer text-gray-500" />
 
                     <span className="text-md text-gray-200 ml-2">(0)</span>
                   </div>

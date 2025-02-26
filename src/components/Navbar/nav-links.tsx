@@ -6,7 +6,7 @@ interface Links {
 
 const Links: Links[] = [
   { href: "/", label: "Home" },
-  { href: "/catalog", label: "Produtos" },
+  { href: "/catalog/{id}", label: "Produtos" },
   { href: "#", label: "Sobre" },
   { href: "#", label: "Contato" },
 ];
