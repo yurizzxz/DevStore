@@ -112,7 +112,7 @@ export default function Product() {
       <Divisor className="mt-30 mb-20" />
       <Section title="Talvez você goste">
         {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList children className="gap-3" />
+        <CardList children className="space-x-4 flex-wrap" />
       </Section>
     </main>
   );

@@ -22,6 +22,7 @@ export default function Catalog() {
 
         <div>
           <h1 className="text-4xl mb-3 font-bold">Catálogo</h1>
+          {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
           <CardList className="space-x-3 flex-wrap" children />
         </div>
       </div>

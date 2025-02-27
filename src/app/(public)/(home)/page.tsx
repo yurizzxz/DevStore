@@ -11,7 +11,7 @@ export default function Home() {
         seeAllLink="/catalog/{id}"
       >
         {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="gap-3 w-full" children />{" "}
+        <CardList className="space-x-4 w-full flex-wrap" children />{" "}
       </Section>
       <Divisor className="my-15" />
       <Section
@@ -19,7 +19,7 @@ export default function Home() {
         description="Confira nossos produtos do dia"
       >
         {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="gap-3 w-full" children />{" "}
+        <CardList className="space-x-4 w-full flex-wrap" children />{" "}
       </Section>
     </main>
   );
