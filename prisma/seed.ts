@@ -27,6 +27,12 @@ async function main() {
 		},
 	})
 
+	const featuredProducts = await prisma.categoria.create({
+		data: {
+			nome: 'Produtos em Destaque',
+		},
+	})
+
 	await prisma.produto.createMany({
 		data: [
 			{
@@ -173,6 +179,15 @@ async function main() {
 				categoriaId: laptops.id,
 			},
 		],
+	})
+
+	await prisma.produto.updateMany({
+		where: {
+			estrelas: 5,
+		},
+		data: {
+			categoriaId: featuredProducts.id,
+		},
 	})
 
 	console.log('Dados inseridos com sucesso!')

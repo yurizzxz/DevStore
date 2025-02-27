@@ -8,18 +8,16 @@ export default function Home() {
       <Section
         title="Produtos em Destaque"
         description="Confira nossos produtos em destaque"
-        seeAllLink="/catalog/{id}"
+        seeAllLink="/catalog/Produtos em Destaque?id=5"
       >
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="space-x-4 w-full flex-wrap" children />{" "}
+        <CardList className="space-x-4 w-full flex-wrap" categoryId="1" />{" "}
       </Section>
       <Divisor className="my-15" />
       <Section
         title={"Promoções do dia"}
         description="Confira nossos produtos do dia"
       >
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList className="space-x-4 w-full flex-wrap" children />{" "}
+        <CardList className="space-x-4 w-full flex-wrap" categoryId="3" />
       </Section>
     </main>
   );

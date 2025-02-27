@@ -6,6 +6,15 @@ import { Plus, ShoppingBag, ShoppingCart, Star, Truck } from "lucide-react";
 import Image from "next/image";
 import { Counter } from "../couter";
 
+interface Params {
+  nome: string;
+}
+
+interface Props {
+  params: Params;
+  searchParams: { category: string };
+}
+
 const productLabel = [
   {
     id: 1,
@@ -15,7 +24,8 @@ const productLabel = [
   },
 ];
 
-export default function Product() {
+export default function Product({ searchParams }: Props) {
+  const categoryId = searchParams?.category;
   return (
     <main className="min-h-dvh py-8 pt-45 ">
       <p>Produtos</p>
@@ -111,8 +121,7 @@ export default function Product() {
       </div>
       <Divisor className="mt-30 mb-20" />
       <Section title="Talvez você goste">
-        {/* biome-ignore lint/correctness/noChildrenProp: <explanation> */}
-        <CardList children className="space-x-4 flex-wrap" />
+        <CardList categoryId={categoryId} className="space-x-4 flex-wrap" />
       </Section>
     </main>
   );

@@ -66,9 +66,11 @@ export default function CardList({ className, categoryId }: CardProps) {
           key={product.id}
           href={`/product/${product.nome}?id=${
             product.id
-          }&image=${encodeURIComponent(product.image)}&price=${product.price}`}
+          }&image=${encodeURIComponent(product.image)}&price=${
+            product.price
+          }&category=${product.category}`}
         >
-          <div className="bg-navbg border border-gray-900 w-[280px] h-[380px] mt-3 rounded-xl cursor-pointer flex flex-col">
+          <div className="bg-navbg border border-gray-900 w-[280px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
             <div className="w-[250px] h-[250px] overflow-hidden rounded-t-xl">
               <Image
                 alt={product.nome}

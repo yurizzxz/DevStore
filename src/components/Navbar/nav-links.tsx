@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const initialLinks = [{ href: "/", label: "Home" }];
+const initialLinks = [
+  { href: "/", label: "Home" },
+  { href: "/catalog/Catálogo", label: "Catálogo" },
+];
 
 export default function NavLinks() {
   const [links, setLinks] = useState(initialLinks);
@@ -37,7 +40,7 @@ export default function NavLinks() {
         <li key={index}>
           <Link
             href={link.href}
-            className="text-white text-[.9rem] hover:text-gray-400 transition-colors duration-200"
+            className="text-white text-[1rem] hover:text-gray-400 transition-colors duration-200"
           >
             {link.label}
           </Link>
