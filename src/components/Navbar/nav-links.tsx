@@ -17,7 +17,7 @@ export default function NavLinks() {
         // biome-ignore lint/suspicious/noExplicitAny: <explanation>
         // biome-ignore lint/suspicious/noExplicitAny: <explanation>
         const newLinks = data.map((category: { id: any; nome: any }) => ({
-          href: `/catalog/${category.id}`,
+          href: `/catalog/${category.nome}?id=${category.id}`,
           label: category.nome,
         }));
 
@@ -37,7 +37,7 @@ export default function NavLinks() {
         <li key={index}>
           <Link
             href={link.href}
-            className="text-white text-sm hover:text-gray-400 transition-colors duration-200"
+            className="text-white text-[.9rem] hover:text-gray-400 transition-colors duration-200"
           >
             {link.label}
           </Link>

@@ -6,12 +6,19 @@ import { type ComponentProps, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface CardProps extends ComponentProps<"button"> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  categoryId?: string;
 }
 
-export default function CardList({ className }: CardProps) {
+export default function CardList({ className, categoryId }: CardProps) {
   const [products, setProducts] = useState<
-    { id: number; nome: string; price: number; image: string }[]
+    {
+      id: number;
+      nome: string;
+      price: number;
+      image: string;
+      category: number;
+    }[]
   >([]);
 
   useEffect(() => {
@@ -36,25 +43,32 @@ export default function CardList({ className }: CardProps) {
           })
         );
 
-        setProducts(productList);
+        const filteredProducts = categoryId
+          ? productList.filter(
+              (product: { category: number }) =>
+                product.category === Number.parseInt(categoryId)
+            )
+          : productList;
+
+        setProducts(filteredProducts);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [categoryId]);
 
   return (
     <div className={twMerge("flex", className)}>
       {products.map((product) => (
         <Link
           key={product.id}
-          href={`/product/${product.id}?title=${encodeURIComponent(
-            product.nome
-          )}&image=${encodeURIComponent(product.image)}&price=${product.price}`}
+          href={`/product/${product.nome}?id=${
+            product.id
+          }&image=${encodeURIComponent(product.image)}&price=${product.price}`}
         >
-          <div className="bg-navbg border border-gray-900 w-[280px] h-[380px] rounded-xl cursor-pointer flex flex-col">
+          <div className="bg-navbg border border-gray-900 w-[280px] h-[380px] mt-3 rounded-xl cursor-pointer flex flex-col">
             <div className="w-[250px] h-[250px] overflow-hidden rounded-t-xl">
               <Image
                 alt={product.nome}
