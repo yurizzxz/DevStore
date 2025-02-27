@@ -1,24 +1,43 @@
-import Link from "next/link";
-interface Links {
-  href: string;
-  label: string;
-}
+"use client";
 
-const Links: Links[] = [
-  { href: "/", label: "Home" },
-  { href: "/catalog/{id}", label: "Produtos" },
-  { href: "#", label: "Sobre" },
-  { href: "#", label: "Contato" },
-];
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const initialLinks = [{ href: "/", label: "Home" }];
+
 export default function NavLinks() {
+  const [links, setLinks] = useState(initialLinks);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("/api/categoria");
+        const data = await response.json();
+
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        const newLinks = data.map((category: { id: any; nome: any }) => ({
+          href: `/catalog/${category.id}`,
+          label: category.nome,
+        }));
+
+        setLinks([...initialLinks, ...newLinks]);
+      } catch (error) {
+        console.error("Erro ao buscar categorias:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <>
-      {Links.map((link, index) => (
+      {links.map((link, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         <li key={index}>
           <Link
             href={link.href}
-            className="text-white text-md hover:text-gray-400 transition-colors duration-200"
+            className="text-white text-sm hover:text-gray-400 transition-colors duration-200"
           >
             {link.label}
           </Link>
