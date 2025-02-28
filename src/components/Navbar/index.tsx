@@ -27,7 +27,9 @@ const Navbar = () => {
         <nav className="max-w-[1240px] mx-auto px-6 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
-              <h1 className="text-2xl font-semibold">Navbar</h1>
+              <h1 className="text-2xl font-bold">
+                Dev<span className="text-purple">Store</span>
+              </h1>
             </Link>
 
             <div className="hidden md:flex px-12 mt-2 w-full">

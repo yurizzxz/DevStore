@@ -71,7 +71,7 @@ export default function CardList({ className, categoryId }: CardProps) {
           }&category=${product.category}`}
         >
           <div className="bg-navbg border border-gray-900 w-[280px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
-            <div className="w-[250px] h-[250px] overflow-hidden rounded-t-xl">
+            <div className="overflow-hidden rounded-t-xl">
               <Image
                 alt={product.nome}
                 width={250}
@@ -84,7 +84,7 @@ export default function CardList({ className, categoryId }: CardProps) {
               <h2 className="card-title text-xl font-semibold line-clamp-2">
                 {product.nome}
               </h2>
-              <div className="flex items-center gap-0.5">
+              <div className="hidden items-center gap-0.5">
                 <Star className="size-4 cursor-pointer text-gold" />
                 <Star className="size-4 cursor-pointer text-gray-500" />
                 <Star className="size-4 cursor-pointer text-gray-500" />

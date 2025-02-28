@@ -19,7 +19,10 @@ export default function Catalog({ params, searchParams }: Props) {
       <div className="flex flex-row gap-4">
         <div>
           <h1 className="text-4xl mb-3 font-bold">{nomeTratado}</h1>
-          <CardList className="space-x-3 flex-wrap" categoryId={categoryId} />
+          <CardList
+            className="space-x-3 flex-wrap space-y-3"
+            categoryId={categoryId}
+          />
         </div>
       </div>
     </main>

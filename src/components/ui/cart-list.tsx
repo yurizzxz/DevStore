@@ -7,7 +7,12 @@ export default function CartList() {
       <div className="px-5">
         <div className="flex relative items-center space-x-5">
           <div>
-            <Image alt="item1" width={125} height={100} src="/1.jpeg" />
+            <Image
+              alt="item1"
+              width={125}
+              height={100}
+              src="http://graph.facebook.com/{user-id}/picture?type=large"
+            />
           </div>
           <div>
             <h2 className="text-xl font-bold font-heading">item1</h2>

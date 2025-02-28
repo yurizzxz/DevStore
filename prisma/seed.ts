@@ -36,7 +36,7 @@ async function main() {
 	await prisma.produto.createMany({
 		data: [
 			{
-				nome: 'Intel Core i9-13900K',
+				nome: 'Intel Core i9-13900K 24 núcleos, 32 threads até 5.8GHz',
 				description:
 					'Processador Intel Core i9 de 13ª geração, 24 núcleos, 32 threads, até 5.8GHz.',
 				preco: 6499.99,
@@ -45,7 +45,7 @@ async function main() {
 				categoriaId: processors.id,
 			},
 			{
-				nome: 'AMD Ryzen 9 7900X',
+				nome: 'AMD Ryzen 9 7900X 12 núcleos, 24 threads até 5.6GHz',
 				description:
 					'Processador AMD Ryzen 9 7900X com 12 núcleos e 24 threads, até 5.6GHz.',
 				preco: 5599.99,
@@ -54,7 +54,7 @@ async function main() {
 				categoriaId: processors.id,
 			},
 			{
-				nome: 'Intel Core i7-12700K',
+				nome: 'Intel Core i7-12700K 12 núcleos, 20 threads até 5.0GHz',
 				description:
 					'Processador Intel Core i7 de 12ª geração, 12 núcleos, 20 threads, até 5.0GHz.',
 				preco: 4799.99,
@@ -63,7 +63,7 @@ async function main() {
 				categoriaId: processors.id,
 			},
 			{
-				nome: 'AMD Ryzen 7 5800X',
+				nome: 'AMD Ryzen 7 5800X 8 núcleos, 16 threads até 4.7GHz',
 				description:
 					'Processador AMD Ryzen 7 5800X com 8 núcleos e 16 threads, até 4.7GHz.',
 				preco: 4099.99,
@@ -72,7 +72,7 @@ async function main() {
 				categoriaId: processors.id,
 			},
 			{
-				nome: 'NVIDIA GeForce RTX 3080',
+				nome: 'NVIDIA GeForce RTX 3080 10GB VRAM GDDR6X',
 				description:
 					'Placa de vídeo NVIDIA GeForce RTX 3080 com 10GB de VRAM GDDR6X.',
 				preco: 8999.99,
@@ -81,7 +81,7 @@ async function main() {
 				categoriaId: graphicsCards.id,
 			},
 			{
-				nome: 'AMD Radeon RX 6900 XT',
+				nome: 'AMD Radeon RX 6900 XT 16GB VRAM GDDR6',
 				description:
 					'Placa de vídeo AMD Radeon RX 6900 XT com 16GB de VRAM GDDR6.',
 				preco: 8499.99,
@@ -90,7 +90,7 @@ async function main() {
 				categoriaId: graphicsCards.id,
 			},
 			{
-				nome: 'NVIDIA GeForce RTX 3070 Ti',
+				nome: 'NVIDIA GeForce RTX 3070 Ti 8GB VRAM GDDR6X',
 				description:
 					'Placa de vídeo NVIDIA GeForce RTX 3070 Ti com 8GB de VRAM GDDR6X.',
 				preco: 6699.99,
@@ -99,7 +99,7 @@ async function main() {
 				categoriaId: graphicsCards.id,
 			},
 			{
-				nome: 'AMD Radeon RX 6800 XT',
+				nome: 'AMD Radeon RX 6800 XT 16GB VRAM GDDR6',
 				description:
 					'Placa de vídeo AMD Radeon RX 6800 XT com 16GB de VRAM GDDR6.',
 				preco: 7599.99,
@@ -110,7 +110,7 @@ async function main() {
 			{
 				nome: 'Corsair Vengeance LPX 16GB (2x8GB) DDR4 3200MHz',
 				description:
-					'Kit de memória RAM Corsair Vengeance LPX, 16GB, DDR4, 3200MHz.',
+					'Kit de memória RAM Corsair Vengeance LPX, 16GB (2x8GB), DDR4, 3200MHz.',
 				preco: 429.99,
 				estrelas: 4,
 				foto: 'https://example.com/corsair-vengeance.jpg',
@@ -119,7 +119,7 @@ async function main() {
 			{
 				nome: 'G.Skill Ripjaws V 32GB (2x16GB) DDR4 3600MHz',
 				description:
-					'Kit de memória RAM G.Skill Ripjaws V, 32GB, DDR4, 3600MHz.',
+					'Kit de memória RAM G.Skill Ripjaws V, 32GB (2x16GB), DDR4, 3600MHz.',
 				preco: 799.99,
 				estrelas: 5,
 				foto: 'https://example.com/gskill-ripjaws.jpg',
@@ -128,7 +128,7 @@ async function main() {
 			{
 				nome: 'Corsair Dominator Platinum 32GB (2x16GB) DDR4 3600MHz',
 				description:
-					'Kit de memória RAM Corsair Dominator Platinum, 32GB, DDR4, 3600MHz.',
+					'Kit de memória RAM Corsair Dominator Platinum, 32GB (2x16GB), DDR4, 3600MHz.',
 				preco: 1299.99,
 				estrelas: 5,
 				foto: 'https://example.com/corsair-dominator.jpg',
@@ -137,14 +137,14 @@ async function main() {
 			{
 				nome: 'G.Skill Trident Z Royal 16GB (2x8GB) DDR4 4000MHz',
 				description:
-					'Kit de memória RAM G.Skill Trident Z Royal, 16GB, DDR4, 4000MHz.',
+					'Kit de memória RAM G.Skill Trident Z Royal, 16GB (2x8GB), DDR4, 4000MHz.',
 				preco: 999.99,
 				estrelas: 4,
 				foto: 'https://example.com/gskill-trident.jpg',
 				categoriaId: memory.id,
 			},
 			{
-				nome: 'Dell XPS 15',
+				nome: 'Dell XPS 15 Intel Core i7, 16GB RAM, 512GB SSD',
 				description:
 					'Notebook Dell XPS 15 com Intel Core i7, 16GB RAM e 512GB SSD.',
 				preco: 11999.99,
@@ -153,7 +153,7 @@ async function main() {
 				categoriaId: laptops.id,
 			},
 			{
-				nome: 'Apple MacBook Pro 16',
+				nome: 'Apple MacBook Pro 16 Apple M1 Pro, 32GB RAM, 1TB SSD',
 				description: 'MacBook Pro 16 com Apple M1 Pro, 32GB RAM, 1TB SSD.',
 				preco: 24999.99,
 				estrelas: 5,
@@ -161,7 +161,7 @@ async function main() {
 				categoriaId: laptops.id,
 			},
 			{
-				nome: 'Lenovo ThinkPad X1 Carbon Gen 9',
+				nome: 'Lenovo ThinkPad X1 Carbon Gen 9 Intel Core i7, 16GB RAM, 512GB SSD',
 				description:
 					'Notebook Lenovo ThinkPad X1 Carbon Gen 9 com Intel Core i7, 16GB RAM e 512GB SSD.',
 				preco: 17999.99,
@@ -170,7 +170,7 @@ async function main() {
 				categoriaId: laptops.id,
 			},
 			{
-				nome: 'HP Spectre x360 14',
+				nome: 'HP Spectre x360 14 Intel Core i7, 16GB RAM, 1TB SSD',
 				description:
 					'Notebook HP Spectre x360 com Intel Core i7, 16GB RAM e 1TB SSD.',
 				preco: 15999.99,

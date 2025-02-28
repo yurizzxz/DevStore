@@ -17,13 +17,16 @@ export default function NavLinks() {
         const response = await fetch("/api/categoria");
         const data = await response.json();
 
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        const newLinks = data.map((category: { id: any; nome: any }) => ({
-          href: `/catalog/${category.nome}?id=${category.id}`,
-          label: category.nome,
-        }));
+        const filteredCategories = data.filter(
+          (category: { id: number }) => category.id >= 1 && category.id <= 4
+        );
 
+        const newLinks = filteredCategories.map(
+          (category: { id: number; nome: string }) => ({
+            href: `/catalog/${category.nome}?id=${category.id}`,
+            label: category.nome,
+          })
+        );
         setLinks([...initialLinks, ...newLinks]);
       } catch (error) {
         console.error("Erro ao buscar categorias:", error);
