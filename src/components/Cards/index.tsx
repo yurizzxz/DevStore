@@ -15,6 +15,7 @@ export default function CardList({ className, categoryId }: CardProps) {
     {
       id: number;
       nome: string;
+      description: string;
       price: number;
       image: string;
       category: number;
@@ -31,12 +32,14 @@ export default function CardList({ className, categoryId }: CardProps) {
           (product: {
             id: number;
             nome: string;
+            description: string;
             foto: string;
             preco: number;
             categoriaId: number;
           }) => ({
             id: product.id,
             nome: product.nome,
+            description: product.description,
             price: product.preco,
             category: product.categoriaId,
             image: product.foto,
@@ -68,7 +71,7 @@ export default function CardList({ className, categoryId }: CardProps) {
             product.id
           }&image=${encodeURIComponent(product.image)}&price=${
             product.price
-          }&category=${product.category}`}
+          }&category=${product.category}&description=${product.description}`}
         >
           <div className="bg-navbg border border-gray-900 w-[280px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
             <div className="overflow-hidden rounded-t-xl">

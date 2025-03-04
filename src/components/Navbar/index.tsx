@@ -64,7 +64,7 @@ const Navbar = () => {
                 setDropdownOpen={setDropdownOpen}
               >
                 <DropdownBody>
-                  <DropdownLink href="#">Perfil</DropdownLink>
+                  <DropdownLink href="/profile">Perfil</DropdownLink>
                   <DropdownLink href="#">Sair</DropdownLink>
                 </DropdownBody>
               </DropdownRoot>

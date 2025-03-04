@@ -17,7 +17,7 @@ export function DropdownRoot({
       {...props}
       aria-hidden={!openDo}
       onClick={() => setDropdownOpen(false)}
-      className="bg-navbg border absolute mt-12 top-0 border-gray-700 shadow-lg w-[230px] right-0"
+      className="bg-navbg border absolute mt-12 top-0 border-gray-700 shadow-lg max-w-[230px] right-0"
     />
   );
 }
@@ -55,10 +55,12 @@ interface DropdownLinkProps extends ComponentProps<"li"> {
 export function DropdownLink({ href, ...props }: DropdownLinkProps) {
   return (
     <li
-      className="px-4 py-3 text-gray-200 hover:bg-gray-800  cursor-pointer"
+      className="py-3 text-gray-200 hover:bg-gray-800  cursor-pointer"
       {...props}
     >
-      <Link href={href}>{props.children}</Link>
+      <Link href={href} className="pl-4 pr-35">
+        {props.children}
+      </Link>
     </li>
   );
 }

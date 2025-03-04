@@ -4,6 +4,7 @@ import { ButtonPrimary, ButtonSecondary } from "@/components/ui/button";
 import Divisor from "@/components/ui/divisor";
 import { Plus, ShoppingBag, ShoppingCart, Star, Truck } from "lucide-react";
 import Image from "next/image";
+import { AccordionBody, AccordionItem, AccordionRoot } from "../accordion";
 import { Counter } from "../couter";
 
 interface Params {
@@ -12,14 +13,27 @@ interface Params {
 
 interface Props {
   params: Params;
-  searchParams: { category: string; price: string; image: string };
+  searchParams: {
+    category: string;
+    price: string;
+    image: string;
+    description: string;
+  };
 }
 
 export default function Product({ params, searchParams }: Props) {
   const { nome } = params;
-  const { category, price, image } = searchParams;
+  const { category, price, image, description } = searchParams;
 
-  const nomeTratado = decodeURIComponent(nome);
+  const [nomeTratado, descricaoTratada] = [
+    decodeURIComponent(nome),
+    decodeURIComponent(description),
+  ];
+
+  const formattedPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(Number(price));
 
   return (
     <main className="min-h-dvh py-8 pt-45 ">
@@ -47,7 +61,7 @@ export default function Product({ params, searchParams }: Props) {
                 </div>
               </div>
             </div>
-            <div className="w-full order-1 md:order-2 max-w-[620px] h-full">
+            <figure className="w-full order-1 md:order-2 max-w-[620px] h-full">
               <Image
                 alt={nomeTratado}
                 src={image}
@@ -55,12 +69,12 @@ export default function Product({ params, searchParams }: Props) {
                 height={600}
                 className="w-full h-auto object-cover rounded-xl"
               />
-            </div>
+            </figure>
           </div>
           <div className="w-full md:w-1/2 flex flex-col">
             <div className="mb-1">
               <div className="mb-3 flex flex-col">
-                <h1 className="text-3xl font-semibold">{nomeTratado}</h1>
+                <h1 className="text-3xl font-bold">{nomeTratado}</h1>
                 <div className="items-center mt-4 gap-1.5 hidden">
                   <Star className="size-7 cursor-pointer text-gold" />
                   <Star className="size-7 cursor-pointer text-gray-500" />
@@ -72,7 +86,7 @@ export default function Product({ params, searchParams }: Props) {
                 </div>
               </div>
               <p className="text-5xl font-bold text-purple text-green-600">
-                R$ {price}
+                {formattedPrice}
               </p>
               <p className="text-md text-gray-300 mt-2 ml-0.5">
                 À vista no pix com <b>10% de desconto</b>
@@ -113,7 +127,26 @@ export default function Product({ params, searchParams }: Props) {
           </div>
         </div>
       </div>
-      <Divisor className="mt-30 mb-20" />
+      <Divisor className="mt-20 mb-20" />
+
+      <AccordionRoot>
+        <AccordionItem title="Descrição do produto">
+          <AccordionBody isOpen>
+            <p>{descricaoTratada}</p>
+          </AccordionBody>
+        </AccordionItem>
+      </AccordionRoot>
+
+      <AccordionRoot>
+        <AccordionItem title="Informações Técnicas">
+          <AccordionBody isOpen>
+            <p>{descricaoTratada}</p>
+          </AccordionBody>
+        </AccordionItem>
+      </AccordionRoot>
+
+      <Divisor className="mt-20 mb-20" />
+
       <Section title="Talvez você goste">
         <CardList categoryId={category} className="space-x-4 flex-wrap" />
       </Section>
