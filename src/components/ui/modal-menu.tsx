@@ -36,7 +36,7 @@ export function ModalHeader(props: ModalHeaderProps) {
     <div
       onClick={(e) => e.stopPropagation()}
       {...props}
-      className="pb-5 border-b border-gray-700 text-xl font-semibold flex flex-row items-center justify-between p-5"
+      className="pb-5 border-b border-gray-700 text-2xl font-semibold flex flex-row items-center justify-between p-5"
     />
   );
 }
