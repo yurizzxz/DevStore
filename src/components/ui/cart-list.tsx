@@ -1,28 +1,61 @@
 import { Trash } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function CartList() {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
+  }, []);
+
+  const handleRemoveItem = (index: number) => {
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   return (
-    <div className="border-b border-gray-700">
-      <div className="px-5">
-        <div className="flex relative items-center space-x-5">
-          <div>
-            <Image
-              alt="item1"
-              width={125}
-              height={100}
-              src="http://graph.facebook.com/{user-id}/picture?type=large"
-            />
+    <div>
+      <div className="max-h-96 overflow-y-auto">
+        {cartItems.map((item, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+          <div key={index} className="px-5 pt-3 pb-4 border-b border-gray-700">
+            <div className="flex relative items-center space-x-4">
+              <div>
+                <Image
+                  alt={item.nome}
+                  width={130}
+                  height={125}
+                  src={item.image}
+                  className="w-full h-auto object-cover rounded-sm"
+                />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold">{item.nome}</h2>
+                <p className="text-sm text-gray-200">Descrição do produto</p>
+                <h3 className="text-purple pt-3 text-xl font-bold">
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(item.price)}
+                </h3>
+                <button
+                  type="button"
+                  className="absolute right-0 bottom-3"
+                  onClick={() => handleRemoveItem(index)}
+                >
+                  <Trash className="text-danger" />
+                </button>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl font-bold font-heading">item1</h2>
-            <p className="text-sm text-gray-200 ">description</p>
-            <h3 className="text-purple pt-3 text-xl font-bold">R$20,00</h3>
-            <button type="button" className="absolute right-0 bottom-3">
-              <Trash className="text-danger" />
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

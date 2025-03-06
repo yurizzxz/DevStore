@@ -45,7 +45,7 @@ interface ModalBodyProps extends ComponentProps<"div"> {}
 
 export function ModalBody(props: ModalBodyProps) {
   return (
-    <div onClick={(e) => e.stopPropagation()} {...props} className="pb-3" />
+    <div onClick={(e) => e.stopPropagation()} {...props} className="flex" />
   );
 }
 

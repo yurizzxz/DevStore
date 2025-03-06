@@ -1,9 +1,14 @@
+"use client";
+
 import CardList from "@/components/Cards";
 import Section from "@/components/Section";
 import { ButtonPrimary, ButtonSecondary } from "@/components/ui/button";
 import Divisor from "@/components/ui/divisor";
+import { useCart } from "@/hooks/useCart";
 import { Plus, ShoppingBag, ShoppingCart, Star, Truck } from "lucide-react";
 import Image from "next/image";
+import { use } from "react";
+import { useCounter } from "../../../../hooks/useCounter";
 import { AccordionBody, AccordionItem, AccordionRoot } from "../accordion";
 import { Counter } from "../couter";
 
@@ -12,18 +17,23 @@ interface Params {
 }
 
 interface Props {
-  params: Params;
-  searchParams: {
+  params: Promise<Params>;
+  searchParams: Promise<{
     category: string;
     price: string;
     image: string;
     description: string;
-  };
+  }>;
 }
 
 export default function Product({ params, searchParams }: Props) {
-  const { nome } = params;
-  const { category, price, image, description } = searchParams;
+  const resolvedParams = use(params);
+  const resolvedSearchParams = use(searchParams);
+
+  const { count, handleCount } = useCounter(1, 1, 2);
+
+  const { nome } = resolvedParams;
+  const { category, price, image, description } = resolvedSearchParams;
 
   const [nomeTratado, descricaoTratada] = [
     decodeURIComponent(nome),
@@ -35,6 +45,17 @@ export default function Product({ params, searchParams }: Props) {
     currency: "BRL",
   }).format(Number(price));
 
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    const newItem = {
+      nome: decodeURIComponent(nome),
+      price: Number(price),
+      image,
+      quantity: count,
+    };
+    addToCart(newItem);
+  };
   return (
     <main className="min-h-dvh py-8 pt-45 ">
       <div className="mt-8 flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -99,22 +120,23 @@ export default function Product({ params, searchParams }: Props) {
 
             <div className="flex mt-auto flex-col gap-2">
               <div className="mb-1">
-                <Counter />
+                <Counter count={count} handleCount={handleCount} />
               </div>
               <div className="flex flex-row gap-3">
                 <ButtonSecondary
-                  className="gap-3 justify-center relative py-3.5"
+                  className="hidden gap-3 justify-center relative py-3.5"
                   type="button"
                 >
                   <ShoppingCart className="mr-2" />
                   <Plus className="size-4 absolute top-2 right-4" />
                 </ButtonSecondary>
                 <ButtonPrimary
-                  className="gap-2 w-full justify-center font-bold py-3.5"
+                  className="gap-3 w-full justify-center font-bold py-4.5 text-xl"
                   type="button"
+                  onClick={handleAddToCart}
                 >
-                  <ShoppingBag />
-                  Comprar agora
+                  <ShoppingBag className="size-7" />
+                  Adicionar ao carrinho
                 </ButtonPrimary>
               </div>
               <div className="bg-gray-900 px-3 py-4 border border-purple rounded-xl flex justify-center gap-3 items-center">
