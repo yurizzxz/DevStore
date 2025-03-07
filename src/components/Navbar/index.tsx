@@ -7,10 +7,10 @@ import React, { useState } from "react";
 import { DropdownBody, DropdownLink, DropdownRoot } from "../ui/dropdown-menu";
 import { InputField, InputIcon, InputRoot } from "../ui/input";
 import {
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  ModalRoot,
+  SidebarBody,
+  SidebarContent,
+  SidebarHeader,
+  SidebarRoot,
 } from "../ui/modal-menu";
 import NavLinks from "./nav-links";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-20 bg-navbg border-b border-gray-800">
-        <nav className="max-w-[1240px] mx-auto px-6 pb-4 ">
+        <nav className="max-w-[1440px] mx-auto px-6 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
               <h1 className="text-2xl font-bold">
@@ -124,9 +124,9 @@ const Navbar = () => {
         />
       )}
 
-      <ModalRoot openMo={openMo} setModalOpen={setOm}>
-        <ModalContent>
-          <ModalHeader>
+      <SidebarRoot openMo={openMo} setModalOpen={setOm}>
+        <SidebarContent>
+          <SidebarHeader>
             Carrinho de compras
             <button
               type="button"
@@ -136,13 +136,13 @@ const Navbar = () => {
             >
               <X className="size-7" />
             </button>
-          </ModalHeader>
+          </SidebarHeader>
 
-          <ModalBody>
+          <SidebarBody>
             <CartList />
-          </ModalBody>
-        </ModalContent>
-      </ModalRoot>
+          </SidebarBody>
+        </SidebarContent>
+      </SidebarRoot>
     </>
   );
 };

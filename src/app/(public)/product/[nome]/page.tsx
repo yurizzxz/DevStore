@@ -154,7 +154,7 @@ export default function Product({ params, searchParams }: Props) {
       <AccordionRoot>
         <AccordionItem title="Descrição do produto">
           <AccordionBody isOpen>
-            <p>{descricaoTratada}</p>
+            <p className="text-md">{descricaoTratada}</p>
           </AccordionBody>
         </AccordionItem>
       </AccordionRoot>
@@ -162,7 +162,7 @@ export default function Product({ params, searchParams }: Props) {
       <AccordionRoot>
         <AccordionItem title="Informações Técnicas">
           <AccordionBody isOpen>
-            <p>{descricaoTratada}</p>
+            <p className="text-md">{descricaoTratada}</p>
           </AccordionBody>
         </AccordionItem>
       </AccordionRoot>

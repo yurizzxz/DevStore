@@ -20,7 +20,7 @@ interface AccordionItemProps extends ComponentProps<"div"> {
 }
 
 export function AccordionItem({ title, ...props }: AccordionItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div {...props}>

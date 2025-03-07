@@ -30,16 +30,15 @@ export default function CartList() {
               <div>
                 <Image
                   alt={item.nome}
-                  width={130}
+                  width={125}
                   height={125}
                   src={item.image}
                   className="w-full h-auto object-cover rounded-sm"
                 />
               </div>
               <div>
-                <h2 className="text-xl font-bold">{item.nome}</h2>
-                <p className="text-sm text-gray-200">Descrição do produto</p>
-                <h3 className="text-purple pt-3 text-xl font-bold">
+                <h2 className="text-lg font-bold">{item.nome}</h2>
+                <h3 className="text-purple text-2xl font-bold">
                   {new Intl.NumberFormat("pt-BR", {
                     style: "currency",
                     currency: "BRL",
@@ -47,7 +46,7 @@ export default function CartList() {
                 </h3>
                 <button
                   type="button"
-                  className="absolute right-0 bottom-3"
+                  className="absolute right-0 bottom-3 cursor-pointer"
                   onClick={() => handleRemoveItem(index)}
                 >
                   <Trash className="text-danger" />

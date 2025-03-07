@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className="bg-black text-[#f5eeff]">
         <main>
           <Navbar />
-          <div className="max-w-[1240] mx-auto px-6  md:py-0">{children}</div>
+          <div className="max-w-[1440] mx-auto px-6  md:py-0">{children}</div>
         </main>
       </body>
     </html>
