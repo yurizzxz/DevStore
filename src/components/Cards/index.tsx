@@ -19,6 +19,7 @@ export default function CardList({ className, categoryId }: CardProps) {
       price: number;
       image: string;
       category: number;
+      specifications: string;
     }[]
   >([]);
 
@@ -35,11 +36,13 @@ export default function CardList({ className, categoryId }: CardProps) {
             description: string;
             foto: string;
             preco: number;
+            specifications: string;
             categoriaId: number;
           }) => ({
             id: product.id,
             nome: product.nome,
             description: product.description,
+            specifications: product.specifications,
             price: product.preco,
             category: product.categoriaId,
             image: product.foto,
@@ -63,7 +66,7 @@ export default function CardList({ className, categoryId }: CardProps) {
   }, [categoryId]);
 
   return (
-    <div className={twMerge("flex", className)}>
+    <div className={twMerge("", className)}>
       {products.map((product) => (
         <Link
           key={product.id}
@@ -71,9 +74,11 @@ export default function CardList({ className, categoryId }: CardProps) {
             product.id
           }&image=${encodeURIComponent(product.image)}&price=${
             product.price
-          }&category=${product.category}&description=${product.description}`}
+          }&category=${product.category}&description=${
+            product.description
+          }&specifications${product.specifications}`}
         >
-          <div className="bg-navbg border border-gray-900 w-[280px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
+          <div className="bg-navbg border border-gray-900 w-[250px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
             <div className="overflow-hidden rounded-t-xl">
               <Image
                 alt={product.nome}

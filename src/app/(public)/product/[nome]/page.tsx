@@ -23,6 +23,7 @@ interface Props {
     price: string;
     image: string;
     description: string;
+    specifications: string;
   }>;
 }
 
@@ -33,7 +34,8 @@ export default function Product({ params, searchParams }: Props) {
   const { count, handleCount } = useCounter(1, 1, 2);
 
   const { nome } = resolvedParams;
-  const { category, price, image, description } = resolvedSearchParams;
+  const { category, price, image, description, specifications } =
+    resolvedSearchParams;
 
   const [nomeTratado, descricaoTratada] = [
     decodeURIComponent(nome),
@@ -95,7 +97,9 @@ export default function Product({ params, searchParams }: Props) {
           <div className="w-full md:w-1/2 flex flex-col">
             <div className="mb-1">
               <div className="mb-3 flex flex-col">
-                <h1 className="text-3xl font-bold">{nomeTratado}</h1>
+                <h1 className="text-3xl md:text-5xl font-bold">
+                  {nomeTratado}
+                </h1>
                 <div className="items-center mt-4 gap-1.5 hidden">
                   <Star className="size-7 cursor-pointer text-gold" />
                   <Star className="size-7 cursor-pointer text-gray-500" />
@@ -106,13 +110,13 @@ export default function Product({ params, searchParams }: Props) {
                   <span className="text-md text-gray-200 ml-2">(0)</span>
                 </div>
               </div>
-              <p className="text-5xl font-bold text-purple text-green-600">
+              <p className="text-6xl font-bold text-purple text-green-600">
                 {formattedPrice}
               </p>
-              <p className="text-md text-gray-300 mt-2 ml-0.5">
+              <p className="text-xl text-gray-300 mt-2 ml-0.5">
                 À vista no pix com <b>10% de desconto</b>
               </p>
-              <p className="text-md text-gray-300 ml-0.5">
+              <p className="text-xl text-gray-300 ml-0.5">
                 Em até <b>R$ {(Number.parseFloat(price) / 10).toFixed(2)}</b> em
                 10x sem juros no cartão
               </p>
@@ -162,7 +166,11 @@ export default function Product({ params, searchParams }: Props) {
       <AccordionRoot>
         <AccordionItem title="Informações Técnicas">
           <AccordionBody isOpen>
-            <p className="text-md">{descricaoTratada}</p>
+            <p className="text-md">
+              {specifications
+                ? JSON.stringify(specifications)
+                : "Sem informações técnicas disponíveis."}
+            </p>
           </AccordionBody>
         </AccordionItem>
       </AccordionRoot>
@@ -170,7 +178,7 @@ export default function Product({ params, searchParams }: Props) {
       <Divisor className="mt-20 mb-20" />
 
       <Section title="Talvez você goste">
-        <CardList categoryId={category} className="space-x-4 flex-wrap" />
+        <CardList categoryId={category} className="flex space-x-4 flex-wrap" />
       </Section>
     </main>
   );

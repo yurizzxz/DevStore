@@ -13,6 +13,7 @@ model Produto {
   description String
   foto        String
   categoriaId Int
+  specifications String
   categoria   Categoria @relation(fields: [categoriaId], references: [id])
   preco       Float
   estrelas    Float

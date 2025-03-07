@@ -5,6 +5,7 @@ CREATE TABLE `Produto` (
     `description` VARCHAR(191) NOT NULL,
     `foto` VARCHAR(191) NOT NULL,
     `categoriaId` INTEGER NOT NULL,
+    `specifications` VARCHAR(191) NOT NULL,
     `preco` DOUBLE NOT NULL,
     `estrelas` DOUBLE NOT NULL,
 

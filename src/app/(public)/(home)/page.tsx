@@ -10,14 +10,14 @@ export default function Home() {
         description="Confira nossos produtos em destaque"
         seeAllLink="/catalog/Produtos em Destaque?id=5"
       >
-        <CardList className="space-x-4 w-full flex-wrap" categoryId="1" />{" "}
+        <CardList className="flex space-x-4 w-full flex-wrap" categoryId="1" />{" "}
       </Section>
       <Divisor className="my-15" />
       <Section
         title={"Promoções do dia"}
         description="Confira nossos produtos do dia"
       >
-        <CardList className="space-x-4 w-full flex-wrap" categoryId="3" />
+        <CardList className="flex space-x-4 w-full flex-wrap" categoryId="3" />
       </Section>
     </main>
   );

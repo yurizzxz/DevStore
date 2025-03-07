@@ -1,5 +1,6 @@
 import { Trash } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function CartList() {
@@ -24,9 +25,23 @@ export default function CartList() {
     <div>
       <div className="max-h-96 overflow-y-auto">
         {cartItems.map((item, index) => (
-          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-          <div key={index} className="px-5 pt-3 pb-4 border-b border-gray-700">
-            <div className="flex relative items-center space-x-4">
+          <Link
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            key={index}
+            href={{
+              pathname: `/product/${item.nome}`,
+              query: {
+                id: item.id,
+                nome: item.nome,
+                image: item.image,
+                price: item.price,
+                category: item.category,
+                description: item.description,
+                specifications: item.specifications,
+              },
+            }}
+          >
+            <div className="px-5 pt-3 pb-5 border-b border-gray-700 flex relative items-center space-x-4">
               <div>
                 <Image
                   alt={item.nome}
@@ -46,14 +61,17 @@ export default function CartList() {
                 </h3>
                 <button
                   type="button"
-                  className="absolute right-0 bottom-3 cursor-pointer"
-                  onClick={() => handleRemoveItem(index)}
+                  className="absolute right-2 bottom-5 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault(); // Impede o redirecionamento ao remover o item
+                    handleRemoveItem(index);
+                  }}
                 >
                   <Trash className="text-danger" />
                 </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
