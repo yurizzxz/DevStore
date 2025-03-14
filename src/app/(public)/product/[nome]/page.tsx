@@ -3,8 +3,9 @@ import CardList from "@/components/Cards";
 import Section from "@/components/Section";
 import Divisor from "@/components/ui/divisor";
 import { useCart } from "@/hooks/useCart";
+import { useCounter } from "@/hooks/useCounter";
+import { ShoppingCart } from "lucide-react";
 import { use } from "react";
-import { useCounter } from "../../../../hooks/useCounter";
 import {
   ProductActions,
   ProductDescription,
@@ -41,7 +42,7 @@ export default function Product({ params, searchParams }: Props) {
     currency: "BRL",
   }).format(Number(price));
 
-  const { addToCart } = useCart();
+  const { addToCart, message } = useCart();
 
   const handleAddToCart = () => {
     const newItem = {
@@ -54,10 +55,19 @@ export default function Product({ params, searchParams }: Props) {
   };
 
   return (
-    <main className="min-h-dvh py-8 pt-45">
+    <main className="min-h-dvh py-8 pt-38 md:pt-45">
+      {message && (
+        <div className="bg-gray-900 border border-gray-800 text-gray-100 p-4 rounded-lg shadow-lg absolute bottom-4 right-4 max-w-xs transition-transform transform duration-300 ease-in-out">
+          <p className="font-semibold text-xl">Sucesso!</p>
+          <div className="flex items-center gap-2 mt-2">
+            <ShoppingCart />
+            <p>{message}</p>
+          </div>
+        </div>
+      )}
       <div className="mt-8 flex flex-col md:flex-row gap-10 items-center md:items-start">
         <div className="flex flex-col md:flex-row gap-3.5 md:gap-10 w-full">
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row space-x-0 md:space-x-12 space-y-8 md:space-y-0">
             <ProductImage image={image} alt={decodeURIComponent(nome)} />
             <div className="w-full md:w-1/2 flex flex-col">
               <ProductHeader

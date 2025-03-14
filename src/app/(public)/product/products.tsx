@@ -11,15 +11,11 @@ interface ProductHeaderProps {
   description: string;
 }
 
-export function ProductHeader({
-  nome,
-  formattedPrice,
-  description,
-}: ProductHeaderProps) {
+export function ProductHeader({ nome, formattedPrice }: ProductHeaderProps) {
   return (
     <div className="mb-1">
       <div className="mb-3 flex flex-col">
-        <h1 className="text-3xl md:text-5xl font-bold">{nome}</h1>
+        <h1 className="text-4xl md:text-5xl font-bold">{nome}</h1>
         <div className="items-center mt-4 gap-1.5 hidden">
           <Star className="size-7 cursor-pointer text-gold" />
           <Star className="size-7 cursor-pointer text-gray-500" />
@@ -45,7 +41,6 @@ export function ProductHeader({
         </b>{" "}
         em 10x sem juros no cartão
       </p>
-      <p className="text-md text-gray-300 mt-4">{description}</p>
     </div>
   );
 }

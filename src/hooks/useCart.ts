@@ -9,6 +9,7 @@ interface CartItem {
 
 export const useCart = () => {
 	const [cart, setCart] = useState<CartItem[]>([])
+	const [message, setMessage] = useState<string | null>(null)
 
 	useEffect(() => {
 		const storedCart = localStorage.getItem('cart')
@@ -21,11 +22,17 @@ export const useCart = () => {
 		const updatedCart = [...cart, item]
 		setCart(updatedCart)
 		localStorage.setItem('cart', JSON.stringify(updatedCart))
-		alert('Item adicionado ao carrinho!')
+
+		setMessage('Item adicionado ao carrinho!')
+
+		setTimeout(() => {
+			setMessage(null)
+		}, 3000)
 	}
 
 	return {
 		cart,
 		addToCart,
+		message,
 	}
 }

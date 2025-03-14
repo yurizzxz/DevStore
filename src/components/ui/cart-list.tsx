@@ -23,7 +23,7 @@ export default function CartList() {
 
   return (
     <div>
-      <div className="max-h-96 overflow-y-auto">
+      <div className="max-h-150 overflow-y-auto">
         {cartItems.map((item, index) => (
           <Link
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -61,9 +61,9 @@ export default function CartList() {
                 </h3>
                 <button
                   type="button"
-                  className="absolute right-2 bottom-5 cursor-pointer"
+                  className="absolute right-5.5 bottom-5.5 cursor-pointer"
                   onClick={(e) => {
-                    e.preventDefault(); // Impede o redirecionamento ao remover o item
+                    e.preventDefault();
                     handleRemoveItem(index);
                   }}
                 >

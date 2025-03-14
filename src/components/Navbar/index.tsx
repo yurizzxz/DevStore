@@ -2,6 +2,7 @@
 
 import CartList from "@/components/ui/cart-list";
 import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { DropdownBody, DropdownLink, DropdownRoot } from "../ui/dropdown-menu";
@@ -27,9 +28,13 @@ const Navbar = () => {
         <nav className="max-w-[1440px] mx-auto px-6 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
-              <h1 className="text-2xl font-bold">
-                Dev<span className="text-purple">Store</span>
-              </h1>
+              <Image
+                alt="DevStore"
+                src="/devstore.png"
+                width={125}
+                height={120}
+                className="w-full h-auto"
+              />
             </Link>
 
             <div className="hidden md:flex px-12 mt-2 w-full">

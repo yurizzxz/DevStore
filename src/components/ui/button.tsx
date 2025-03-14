@@ -10,7 +10,7 @@ export function ButtonPrimary({ className, ...props }: ButtonPrimaryProps) {
     <button
       {...props}
       className={twMerge(
-        "px-6 py-3 bg-purple-bold flex items-center rounded-lg shadow-md hover:bg-green-700 transition duration-300 cursor-pointer hover:bg-purple-hover",
+        "px-6 py-3 bg-purple-bold justify-center flex items-center rounded-lg shadow-md hover:bg-green-700 transition duration-300 cursor-pointer hover:bg-purple-hover",
         className
       )}
     />

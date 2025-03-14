@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 
 	images: {
 		domains: [
-			'hakzttyrnyjeldmcjxpw.supabase.co',
+			process.env.NEXT_PUBLIC_SUPABASE,
 			'graph.facebook.com',
 			'example.com',
 		],

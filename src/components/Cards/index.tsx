@@ -78,7 +78,7 @@ export default function CardList({ className, categoryId }: CardProps) {
             product.description
           }&specifications${product.specifications}`}
         >
-          <div className="bg-navbg border border-gray-900 w-[250px] h-[450px] mt-3 rounded-xl cursor-pointer flex flex-col">
+          <div className="bg-navbg border border-gray-900 w-[250px] h-[420px] mt-3 rounded-xl cursor-pointer flex flex-col">
             <div className="overflow-hidden rounded-t-xl">
               <Image
                 alt={product.nome}

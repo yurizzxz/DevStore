@@ -13,8 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // biome-ignore lint/a11y/useValidLang: <explanation>
-    <html lang="pt-br">
+    <html lang="en">
       <head>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
