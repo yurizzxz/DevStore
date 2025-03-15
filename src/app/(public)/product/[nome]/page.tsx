@@ -55,7 +55,7 @@ export default function Product({ params, searchParams }: Props) {
   };
 
   return (
-    <main className="min-h-dvh py-8 pt-38 md:pt-45">
+    <main className="min-h-dvh py-8 ">
       {message && (
         <div className="bg-gray-900 border border-gray-800 text-gray-100 p-4 rounded-lg shadow-lg absolute bottom-4 right-4 max-w-xs transition-transform transform duration-300 ease-in-out">
           <p className="font-semibold text-xl">Sucesso!</p>

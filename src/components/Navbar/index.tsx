@@ -25,6 +25,9 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-20 bg-navbg border-b border-gray-800">
+        <div className="p-1 flex justify-center bg-purple">
+          <p>20% de desconto na primeira compra</p>
+        </div>
         <nav className="max-w-[1440px] mx-auto px-6 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
