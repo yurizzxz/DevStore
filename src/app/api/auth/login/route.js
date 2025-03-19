@@ -4,7 +4,7 @@ import { getConnection } from "@/lib/db";
 
 export async function POST(req) {
   try {
-    const { name, email, password, type } = await req.json();
+    const { name, email, password, type, telefone, cpf, rua, cidade, estado, cep } = await req.json();
     const connection = await getConnection();
 
     if (type === "register") {
@@ -17,11 +17,10 @@ export async function POST(req) {
 
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      await connection.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [
-        name,
-        email,
-        hashedPassword,
-      ]);
+      await connection.execute(
+        "INSERT INTO users (name, email, password, telefone, cpf, rua, cidade, estado, cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [name, email, hashedPassword, telefone, cpf, rua, cidade, estado, cep]
+      );
 
       connection.release();
 
@@ -45,7 +44,7 @@ export async function POST(req) {
       }
 
       const token = jwt.sign(
-        { id: user.id, name: user.name, email: user.email },
+        { id: user.id, name: user.name, email: user.email, cep: user.cep, telefone: user.telefone, cidade: user.cidade, estado: user.estado, rua: user.rua },
         process.env.JWT_SECRET || "123456",
         { expiresIn: "1h" }
       );

@@ -14,11 +14,14 @@ import {
   SidebarRoot,
 } from "../ui/sidebar";
 import NavLinks from "./nav-links";
+import { useAuth } from "@/context/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const [openMo, setOm] = useState<boolean>(false);
+
+  const { user, logout } = useAuth();
 
   const [openDropdown, setDropdownOpen] = useState<boolean>(false);
 
@@ -64,7 +67,11 @@ const Navbar = () => {
                 onClick={() => setDropdownOpen((prev) => !prev)}
               >
                 <User className="size-7" />
-                <span className="hidden md:block ntext-md">Perfil</span>
+                {user ? (
+                  <span className="hidden md:block text-md">{user.name}</span>
+                ) : (
+                  <span className="hidden md:block text-md">Entrar</span>
+                )}
               </button>
               {/*  oignore lint/style/useSelfClosingElements: <explanation> */}
               <DropdownRoot
@@ -73,7 +80,9 @@ const Navbar = () => {
               >
                 <DropdownBody>
                   <DropdownLink href="/profile">Perfil</DropdownLink>
-                  <DropdownLink href="#">Sair</DropdownLink>
+                  <DropdownLink href="/" onClick={logout}>
+                    Sair
+                  </DropdownLink>
                 </DropdownBody>
               </DropdownRoot>
               {/* biome-ignore lint/a11y/useButtonType: <explanation> */}

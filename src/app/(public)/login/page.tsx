@@ -5,6 +5,7 @@ import { InputField, InputIcon, InputRoot } from "@/components/ui/input";
 import { Lock, User } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Auth() {
   const [name, setName] = useState("");
@@ -13,6 +14,8 @@ export default function Auth() {
   const [error, setError] = useState("");
   const [isRegister, setIsRegister] = useState(false);
   const router = useRouter();
+
+  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,6 +44,8 @@ export default function Auth() {
         setError(data.message);
         return;
       }
+
+      login(data.token);
 
       if (isRegister) {
         alert("Cadastro realizado com sucesso! Agora faça login.");
