@@ -124,7 +124,7 @@ export function ProductDescription({
         </AccordionItem>
       </AccordionRoot>
 
-      <AccordionRoot>
+      <AccordionRoot style={{ display: "none" }}>
         <AccordionItem title="Informações Técnicas">
           <AccordionBody isOpen>
             <p className="text-md">

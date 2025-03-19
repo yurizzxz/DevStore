@@ -16,8 +16,12 @@ export default function Home() {
       <Divisor className="my-15" />
       <SectionImage
         image="/section1.avif"
-        title="Titulo"
-        description="Descrição"
+        title="Hardware de Alta Performance para Desenvolvedores"
+        description="A DevStore é o destino ideal para quem busca notebooks poderosos, placas de vídeo de alto desempenho, memórias RAM de alta velocidade e processadores eficientes. 
+        Nossos produtos são selecionados para oferecer o máximo desempenho em programação, desenvolvimento de software, modelagem 3D e até mesmo para quem gosta de um jogo depois do expediente. 
+        Trabalhamos com as melhores marcas do mercado, garantindo qualidade, confiabilidade e tecnologia de ponta. 
+        Se você precisa de mais velocidade para compilar códigos, renderizar projetos ou simplesmente aumentar sua produtividade, temos as melhores opções para você. 
+        Invista no seu setup com os melhores componentes do mercado!"
       />
       <Divisor className="my-15" />
       <Section

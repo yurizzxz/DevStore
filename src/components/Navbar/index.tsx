@@ -12,7 +12,7 @@ import {
   SidebarContent,
   SidebarHeader,
   SidebarRoot,
-} from "../ui/modal-menu";
+} from "../ui/sidebar";
 import NavLinks from "./nav-links";
 
 const Navbar = () => {

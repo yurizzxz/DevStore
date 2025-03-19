@@ -28,7 +28,7 @@ export function SidebarContent(props: SidebarContentProps) {
     <div
       onClick={(e) => e.stopPropagation()}
       {...props}
-      className="bg-navbg w-120 h-full rounded-r-xl border-l border-gray-700 shadow-lg"
+      className="bg-navbg w-120 h-full rounded-l-xl border-l border-gray-700 shadow-lg"
     />
   );
 }
