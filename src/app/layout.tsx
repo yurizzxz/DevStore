@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "DevStore",
@@ -27,9 +28,11 @@ export default function RootLayout({
       <body className="bg-black text-[#f5eeff]">
         <main>
           <Navbar />
-          <div className="max-w-[1440] mx-auto px-6 pt-45 md:pt-45 md:py-0">
-            {children}
-          </div>
+          <AuthProvider>
+            <div className="max-w-[1440] mx-auto px-6 pt-45 md:pt-45 md:py-0">
+              {children}
+            </div>
+          </AuthProvider>
         </main>
       </body>
     </html>
