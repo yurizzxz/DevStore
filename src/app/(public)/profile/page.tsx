@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 export default function Profile() {
   const { user } = useAuth();
   return (
-    <div className=" mx-auto pt-15 bg-white rounded-lg ">
+    <div className=" mx-auto pt-45 md:pt-55 bg-white rounded-lg ">
       <div className="flex items-center space-x-4 mb-8">
         <img
           src="https://via.placeholder.com/150"

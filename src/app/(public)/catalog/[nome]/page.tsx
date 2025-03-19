@@ -15,7 +15,7 @@ export default function Catalog({ params, searchParams }: Props) {
   const categoryId = searchParams?.id;
 
   return (
-    <main className="min-h-dvh py-8 pt-15 md:pt-10">
+    <main className="min-h-dvh py-8 pt-45 md:pt-55">
       <div className="flex flex-row gap-4">
         <div>
           <h1 className="text-4xl mb-3 font-bold">{nomeTratado}</h1>

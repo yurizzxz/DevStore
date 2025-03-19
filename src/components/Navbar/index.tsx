@@ -63,12 +63,12 @@ const Navbar = () => {
               </button>
               <button
                 type="button"
-                className="cursor-pointer flex items-center gap-1"
+                className="cursor-pointer flex items-center gap-1 w-full"
                 onClick={() => setDropdownOpen((prev) => !prev)}
               >
                 <User className="size-7" />
                 {user ? (
-                  <span className="hidden md:block text-md">{user.name}</span>
+                  <span className="hidden md:block text-md">Perfil</span>
                 ) : (
                   <span className="hidden md:block text-md">Entrar</span>
                 )}
@@ -78,12 +78,19 @@ const Navbar = () => {
                 openDo={openDropdown}
                 setDropdownOpen={setDropdownOpen}
               >
-                <DropdownBody>
-                  <DropdownLink href="/profile">Perfil</DropdownLink>
-                  <DropdownLink href="/" onClick={logout}>
-                    Sair
-                  </DropdownLink>
-                </DropdownBody>
+                {user ? (
+                  <DropdownBody>
+                    <p className="px-4 py-3">Olá, {user.name}!</p>
+                    <DropdownLink href="/profile">Perfil</DropdownLink>
+                    <DropdownLink href="/" onClick={logout}>
+                      Sair
+                    </DropdownLink>
+                  </DropdownBody>
+                ) : (
+                  <DropdownBody>
+                    <DropdownLink href="/login">Entrar</DropdownLink>
+                  </DropdownBody>
+                )}
               </DropdownRoot>
               {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
               <button

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
+import ClientNavbar from "@/components/ClientNavbar";
 
 export const metadata: Metadata = {
   title: "DevStore",
@@ -29,11 +29,9 @@ export default function RootLayout({
         <main>
           {" "}
           <AuthProvider>
-            <Navbar />
+            <ClientNavbar />
 
-            <div className="max-w-[1440] mx-auto px-6 pt-45 md:pt-45 md:py-0">
-              {children}
-            </div>
+            <div className="max-w-[1440] mx-auto px-6 md:py-0">{children}</div>
           </AuthProvider>
         </main>
       </body>

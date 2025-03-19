@@ -5,7 +5,7 @@ import Divisor from "@/components/ui/divisor";
 
 export default function Home() {
   return (
-    <main className="min-h-dvh pt-15 md:pt-10 pb-15">
+    <main className="min-h-dvh  pt-45 md:pt-55 pb-15">
       <Section
         title="Produtos em Destaque"
         description="Confira nossos produtos em destaque"
