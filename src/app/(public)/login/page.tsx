@@ -13,12 +13,13 @@ export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [telefone] = useState("");
-  const [cpf] = useState("");
+  const [cpf, setCpf] = useState("");
   const [rua, setRua] = useState("");
   const [cidade] = useState("");
   const [estado] = useState("");
-  const [cep] = useState("");
+  const [cep, setCep] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [isRegister, setIsRegister] = useState(false);
   const router = useRouter();
 
@@ -61,7 +62,7 @@ export default function Auth() {
       login(data.token);
 
       if (isRegister) {
-        alert("Cadastro realizado com sucesso! Agora faça login.");
+        setMessage("Cadastro realizado com sucesso! Agora faça login.");
         setIsRegister(false);
       } else {
         localStorage.setItem("token", data.token);
@@ -112,6 +113,28 @@ export default function Auth() {
                     onChange={(e) => setRua(e.target.value)}
                   />
                 </InputRoot>
+                <InputRoot className="h-14">
+                  <InputIcon>
+                    <User />
+                  </InputIcon>
+                  <InputField
+                    type="text"
+                    placeholder="CPF"
+                    value={cpf}
+                    onChange={(e) => setCpf(e.target.value)}
+                  />
+                </InputRoot>
+                <InputRoot className="h-14">
+                  <InputIcon>
+                    <User />
+                  </InputIcon>
+                  <InputField
+                    type="text"
+                    placeholder="CEP"
+                    value={cep}
+                    onChange={(e) => setCep(e.target.value)}
+                  />
+                </InputRoot>
               </div>
             </>
           )}
@@ -145,9 +168,7 @@ export default function Auth() {
             {isRegister ? "Cadastrar" : "Entrar"}
           </ButtonPrimary>
         </form>
-        {error && (
-          <p className="mt-2 text-danger text-sm text-center">{error}</p>
-        )}
+
         <p
           className="text-center mt-6 text-sm text-blue-500 cursor-pointer"
           onClick={() => setIsRegister(!isRegister)}
@@ -164,7 +185,16 @@ export default function Auth() {
             </>
           )}
         </p>
+        {error && (
+          <p className="mt-2 text-danger text-sm text-center">{error}</p>
+        )}
       </div>
+
+      {message && (
+        <div className="p-4 absolute bottom-0 right-0 mb-4 text-green-600 bg-green-200 border border-green-400 rounded-lg">
+          {message}
+        </div>
+      )}
     </div>
   );
 }

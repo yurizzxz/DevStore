@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="p-1 flex justify-center bg-purple">
           <p>20% de desconto na primeira compra</p>
         </div>
-        <nav className="max-w-[1440px] mx-auto px-6 pb-4 ">
+        <nav className="max-w-[1440px] mx-auto px-3 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
               <Image
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <User className="size-7 flex-shrink-0" />
                 {user ? (
                   <div className="flex flex-col">
-                    <small className="text-left">Olá!</small>
+                    <small className="text-left hidden md:block">Olá!</small>
                     <span className="hidden md:block text-md text-purple font-semibold max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
                       {user.name}
                     </span>
@@ -124,7 +124,7 @@ const Navbar = () => {
       </header>
 
       <aside
-        className={`fixed top-0 left-0 w-3/4 z-50 h-full bg-navbg  transition-transform duration-300 ease-in-out md:hidden transform ${
+        className={`fixed top-0 left-0 w-4/5 z-50 h-full bg-navbg  transition-transform duration-300 ease-in-out md:hidden transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         aria-hidden={!isOpen}
@@ -156,14 +156,14 @@ const Navbar = () => {
       <SidebarRoot openMo={openMo} setModalOpen={setOm}>
         <SidebarContent>
           <SidebarHeader>
-            Carrinho de compras
+            <h1 className="text-xl md:text-2xl">Carrinho de compras</h1>
             <button
               type="button"
               aria-hidden
               className="cursor-pointer"
               onClick={() => setOm(false)}
             >
-              <X className="size-7" />
+              <X className="size-6 md:size-7 mt-1" />
             </button>
           </SidebarHeader>
 
