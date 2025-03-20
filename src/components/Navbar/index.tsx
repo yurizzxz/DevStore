@@ -66,13 +66,19 @@ const Navbar = () => {
                 className="cursor-pointer flex items-center gap-1 w-full"
                 onClick={() => setDropdownOpen((prev) => !prev)}
               >
-                <User className="size-7" />
+                <User className="size-7 flex-shrink-0" />
                 {user ? (
-                  <span className="hidden md:block text-md">Perfil</span>
+                  <div className="flex flex-col">
+                    <small className="text-left">Olá!</small>
+                    <span className="hidden md:block text-md text-purple font-semibold max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
+                      {user.name}
+                    </span>
+                  </div>
                 ) : (
                   <span className="hidden md:block text-md">Entrar</span>
                 )}
               </button>
+
               {/*  oignore lint/style/useSelfClosingElements: <explanation> */}
               <DropdownRoot
                 openDo={openDropdown}
@@ -80,7 +86,6 @@ const Navbar = () => {
               >
                 {user ? (
                   <DropdownBody>
-                    <p className="px-4 py-3">Olá, {user.name}!</p>
                     <DropdownLink href="/profile">Perfil</DropdownLink>
                     <DropdownLink href="/" onClick={logout}>
                       Sair
