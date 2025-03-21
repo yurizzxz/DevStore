@@ -17,7 +17,7 @@ export function DropdownRoot({
       {...props}
       aria-hidden={!openDo}
       onClick={() => setDropdownOpen(false)}
-      className="bg-navbg border absolute mt-12 top-0 border-gray-700 shadow-lg max-w-[230px] right-0"
+      className="bg-navbg border absolute mt-14 top-0 border-gray-700 shadow-lg max-w-[230px] right-11"
     />
   );
 }

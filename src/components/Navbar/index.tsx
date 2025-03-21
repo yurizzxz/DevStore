@@ -15,6 +15,7 @@ import {
 } from "../ui/sidebar";
 import NavLinks from "./nav-links";
 import { useAuth } from "@/context/AuthContext";
+import SearchBar from "../ui/searchbar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -44,19 +45,14 @@ const Navbar = () => {
             </Link>
 
             <div className="hidden md:flex px-12 ml-2 mt-1 w-full">
-              <InputRoot>
-                <InputIcon>
-                  <Search />
-                </InputIcon>
-                <InputField placeholder="O que você procura?" />
-              </InputRoot>
+              <SearchBar />
             </div>
 
             <div className="relative flex items-center space-x-3 md:gap-4 md:space-x-0">
               <button
                 type="button"
-                className="cursor-pointer flex items-center gap-2 md:w-42"
-                onClick={() => setDropdownOpen((prev) => !prev)}
+                className="cursor-pointer flex items-center gap-2 "
+                onClick={() => (user ? setDropdownOpen((prev) => !prev) : null)}
               >
                 <User className="size-7 flex-shrink-0" />
                 {user ? (
@@ -67,11 +63,12 @@ const Navbar = () => {
                     </span>
                   </div>
                 ) : (
-                  <span className="hidden md:block text-md">
+                  <Link href="/login" className="hidden md:block text-md">
                     Entrar/Criar Conta
-                  </span>
+                  </Link>
                 )}
               </button>
+
               <p className="opacity-20">|</p>
               <button
                 type="button"

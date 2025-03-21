@@ -2,7 +2,7 @@
 
 import { ButtonPrimary } from "@/components/ui/button";
 import { InputField, InputIcon, InputRoot } from "@/components/ui/input";
-import { Lock, User } from "lucide-react";
+import { Lock, User, IdCard, Mail } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -14,10 +14,10 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [telefone] = useState("");
   const [cpf, setCpf] = useState("");
-  const [rua, setRua] = useState("");
+  const [rua] = useState("");
   const [cidade] = useState("");
   const [estado] = useState("");
-  const [cep, setCep] = useState("");
+  const [cep] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [isRegister, setIsRegister] = useState(false);
@@ -75,16 +75,27 @@ export default function Auth() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-md p-6 bg-navbg rounded-2xl border border-gray-800">
+      <div className="bg-[#4400CD] flex order-2 max-w-2xl rounded-r-2xl h-175">
+        <Image
+          src="/vetor1.svg"
+          alt="Login"
+          width={600}
+          height={600}
+          className=""
+        />
+      </div>
+      <div className="w-full flex flex-col justify-center max-w-xl h-175 p-18 bg-navbg rounded-l-2xl border-y border-l border-gray-800">
         <Image
           src="/devstore.png"
           alt="Logo DevStore"
-          width={100}
+          width={140}
           height={100}
-          className="mx-auto"
+          className=""
         />
-        <h2 className="text-2xl mt-5 font-semibold text-center text-gray-200">
-          Bem vindo a DevStore!
+        <h2 className="text-2xl mt-5 font-semibold text-left text-gray-200">
+          {isRegister
+            ? "Cadastre-se agora para começar na DevStore!"
+            : "Bem-vindo de volta! Entre com sua conta e comece a comprar!"}
         </h2>
 
         <form onSubmit={handleSubmit} className="mt-4">
@@ -104,18 +115,7 @@ export default function Auth() {
                 </InputRoot>
                 <InputRoot className="h-14">
                   <InputIcon>
-                    <User />
-                  </InputIcon>
-                  <InputField
-                    type="text"
-                    placeholder="Rua"
-                    value={rua}
-                    onChange={(e) => setRua(e.target.value)}
-                  />
-                </InputRoot>
-                <InputRoot className="h-14">
-                  <InputIcon>
-                    <User />
+                    <IdCard />
                   </InputIcon>
                   <InputField
                     type="text"
@@ -124,24 +124,13 @@ export default function Auth() {
                     onChange={(e) => setCpf(e.target.value)}
                   />
                 </InputRoot>
-                <InputRoot className="h-14">
-                  <InputIcon>
-                    <User />
-                  </InputIcon>
-                  <InputField
-                    type="text"
-                    placeholder="CEP"
-                    value={cep}
-                    onChange={(e) => setCep(e.target.value)}
-                  />
-                </InputRoot>
               </div>
             </>
           )}
           <div>
             <InputRoot className="h-14">
               <InputIcon>
-                <User />
+                <Mail />
               </InputIcon>
               <InputField
                 type="email"
@@ -164,13 +153,16 @@ export default function Auth() {
               />
             </InputRoot>
           </div>
-          <ButtonPrimary className="w-full mt-4 py-4 font-bold" type="submit">
+          <ButtonPrimary
+            className="w-full mt-4 py-4 font-bold text-xl"
+            type="submit"
+          >
             {isRegister ? "Cadastrar" : "Entrar"}
           </ButtonPrimary>
         </form>
 
         <p
-          className="text-center mt-6 text-sm text-blue-500 cursor-pointer"
+          className="text-center mt-6 text-md text-blue-500 cursor-pointer"
           onClick={() => setIsRegister(!isRegister)}
         >
           {isRegister ? (
@@ -189,7 +181,6 @@ export default function Auth() {
           <p className="mt-2 text-danger text-sm text-center">{error}</p>
         )}
       </div>
-
       {message && (
         <div className="p-4 absolute bottom-0 right-0 mb-4 text-green-600 bg-green-200 border border-green-400 rounded-lg">
           {message}
