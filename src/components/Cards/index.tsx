@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ComponentProps, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 
 interface CardProps extends ComponentProps<"button"> {
   children?: React.ReactNode;
@@ -22,6 +23,8 @@ export default function CardList({ className, categoryId }: CardProps) {
       specifications: string;
     }[]
   >([]);
+
+  const formattedPrice = (price: number) => formatCurrency(price);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -101,10 +104,10 @@ export default function CardList({ className, categoryId }: CardProps) {
                 <span className="text-xs text-gray-200 ml-2">(0)</span>
               </div>
               <p className="card-description text-2xl text-purple font-bold break-words line-clamp-2">
-                R$ {product.price.toFixed(2)}
+                {formattedPrice(product.price)}
               </p>
               <p className="text-sm text-gray-300 ml-0.5">
-                Em até <b>R$ {(product.price / 10).toFixed(2)}</b> em 10x
+                Em até <b>{formattedPrice(product.price / 10)}</b> em 10x sem
               </p>
             </div>
           </div>

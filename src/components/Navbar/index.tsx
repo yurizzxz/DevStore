@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-20 bg-navbg border-b border-gray-800">
-        <div className="p-1 flex justify-center bg-purple">
+        <div className="p-1 flex justify-center font-semibold bg-purple">
           <p>20% de desconto na primeira compra</p>
         </div>
         <nav className="max-w-[1440px] mx-auto px-3 pb-4 ">
@@ -39,11 +39,11 @@ const Navbar = () => {
                 src="/devstore.png"
                 width={125}
                 height={120}
-                className="w-full h-auto"
+                className="w-50 h-auto"
               />
             </Link>
 
-            <div className="hidden md:flex px-12 mt-2 w-full">
+            <div className="hidden md:flex px-12 ml-2 mt-1 w-full">
               <InputRoot>
                 <InputIcon>
                   <Search />
@@ -55,15 +55,7 @@ const Navbar = () => {
             <div className="relative flex items-center space-x-3 md:gap-4 md:space-x-0">
               <button
                 type="button"
-                className="cursor-pointer flex items-center gap-3"
-                onClick={() => setOm(true)}
-              >
-                <ShoppingCart className="size-7" />
-                <span className="hidden md:block ntext-md">Carrinho</span>
-              </button>
-              <button
-                type="button"
-                className="cursor-pointer flex items-center gap-1 w-full"
+                className="cursor-pointer flex items-center gap-2 md:w-42"
                 onClick={() => setDropdownOpen((prev) => !prev)}
               >
                 <User className="size-7 flex-shrink-0" />
@@ -75,10 +67,20 @@ const Navbar = () => {
                     </span>
                   </div>
                 ) : (
-                  <span className="hidden md:block text-md">Entrar</span>
+                  <span className="hidden md:block text-md">
+                    Entrar/Criar Conta
+                  </span>
                 )}
               </button>
-
+              <p className="opacity-20">|</p>
+              <button
+                type="button"
+                className="cursor-pointer flex items-center gap-2"
+                onClick={() => setOm(true)}
+              >
+                <ShoppingCart className="size-7" />
+                <span className="hidden md:block text-md">Carrinho</span>
+              </button>
               {/*  oignore lint/style/useSelfClosingElements: <explanation> */}
               <DropdownRoot
                 openDo={openDropdown}

@@ -12,6 +12,7 @@ import {
   ProductHeader,
   ProductImage,
 } from "../products";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 
 interface Params {
   nome: string;
@@ -37,12 +38,9 @@ export default function Product({ params, searchParams }: Props) {
   const { category, price, image, description, specifications } =
     resolvedSearchParams;
 
-  const formattedPrice = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(Number(price));
-
   const { addToCart, message } = useCart();
+
+  const formattedPrice = formatCurrency(Number(price));
 
   const handleAddToCart = () => {
     const newItem = {

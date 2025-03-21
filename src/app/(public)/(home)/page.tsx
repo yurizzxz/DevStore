@@ -1,23 +1,17 @@
 import CardList from "@/components/Cards";
 import Section from "@/components/Section";
 import SectionImage from "@/components/Section/sectionImage";
+import Banner from "@/components/ui/banner";
 import Divisor from "@/components/ui/divisor";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-dvh pt-15  pb-15">
-      <Image
-        src="/banner1.png"
-        width={1440}
-        height={400}
-        alt="banner promocional"
-        className="mt-40 md:mt-38 w-full"
-      />
+    <main className="min-h-dvh pt-17  pb-15">
+      <Banner />
+      <Divisor className="mt-10 opacity-50" />
       <div className="pt-10 ">
         <Section
           title="Produtos em Destaque"
-          description="Confira nossos produtos em destaque"
           seeAllLink="/catalog/Produtos em Destaque?id=5"
         >
           <CardList

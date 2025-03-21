@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 
-interface SidebarRootProps extends ComponentProps<"div"> {
+interface SidebarRootProps extends ComponentProps<"aside"> {
   openMo: boolean;
   setModalOpen: (open: boolean) => void;
 }
@@ -12,7 +12,7 @@ export function SidebarRoot({
 }: SidebarRootProps) {
   if (!openMo) return null;
   return (
-    <div
+    <aside
       {...props}
       aria-hidden={!openMo}
       onClick={() => setModalOpen(false)}
