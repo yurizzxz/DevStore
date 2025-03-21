@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import SectionImage from "@/components/Section/sectionImage";
 import Banner from "@/components/ui/banner";
 import Divisor from "@/components/ui/divisor";
+import Image from "next/image";
 
 export default function Home() {
   return (

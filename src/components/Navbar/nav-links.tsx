@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const initialLinks = [
   { href: "/", label: "Home" },
   { href: "/catalog/Catálogo", label: "Catálogo" },
 ];
 
-export default function NavLinks() {
+interface NavLinksProps {
+  linkClass?: string;
+}
+
+export default function NavLinks({ linkClass = "" }: NavLinksProps) {
   const [links, setLinks] = useState(initialLinks);
 
   useEffect(() => {
@@ -39,11 +44,13 @@ export default function NavLinks() {
   return (
     <>
       {links.map((link, index) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-        <li key={index}>
+        <li className="list-none" key={index}>
           <Link
             href={link.href}
-            className="text-white text-[1rem] hover:text-gray-400 transition-colors duration-200"
+            className={twMerge(
+              "text-white text-[1rem] hover:text-gray-400 transition-colors duration-200",
+              linkClass
+            )}
           >
             {link.label}
           </Link>
