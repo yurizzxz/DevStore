@@ -9,6 +9,7 @@ import { formatCurrency } from "@/app/utils/formatCurrency";
 interface CardProps extends ComponentProps<"button"> {
   children?: React.ReactNode;
   categoryId?: string;
+  categoryId2?: string;
 }
 
 export default function CardList({ className, categoryId }: CardProps) {
@@ -21,6 +22,7 @@ export default function CardList({ className, categoryId }: CardProps) {
       image: string;
       category: number;
       specifications: string;
+      category2: number;
     }[]
   >([]);
 
@@ -41,6 +43,7 @@ export default function CardList({ className, categoryId }: CardProps) {
             preco: number;
             specifications: string;
             categoriaId: number;
+            categoriaId2: number;
           }) => ({
             id: product.id,
             nome: product.nome,
@@ -49,13 +52,15 @@ export default function CardList({ className, categoryId }: CardProps) {
             price: product.preco,
             category: product.categoriaId,
             image: product.foto,
+            category2: product.categoriaId2,
           })
         );
 
         const filteredProducts = categoryId
           ? productList.filter(
-              (product: { category: number }) =>
-                product.category === Number.parseInt(categoryId)
+              (product: { category: number; category2: number }) =>
+                product.category === Number.parseInt(categoryId) ||
+                product.category2 === Number.parseInt(categoryId)
             )
           : productList;
 

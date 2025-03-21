@@ -3,7 +3,6 @@ import Section from "@/components/Section";
 import SectionImage from "@/components/Section/sectionImage";
 import Banner from "@/components/ui/banner";
 import Divisor from "@/components/ui/divisor";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -13,11 +12,11 @@ export default function Home() {
       <div className="pt-10 ">
         <Section
           title="Produtos em Destaque"
-          seeAllLink="/catalog/Produtos em Destaque?id=5"
+          seeAllLink="/catalog/Produtos em Destaque?id=7"
         >
           <CardList
             className="flex space-x-4 w-full flex-wrap"
-            categoryId="1"
+            categoryId="7"
           />{" "}
         </Section>
         <Divisor className="my-15" />
@@ -37,7 +36,7 @@ export default function Home() {
         >
           <CardList
             className="flex space-x-4 w-full flex-wrap"
-            categoryId="3"
+            categoryId="6"
           />
         </Section>
       </div>
