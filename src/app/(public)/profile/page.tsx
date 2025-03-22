@@ -93,7 +93,7 @@ function ProfileModal({ user, onClose, logout }: ProfileModalProps) {
       >
         <div className="flex justify-between items-center w-full mb-4">
           <h2 className="text-2xl font-bold">Informações do Perfil</h2>
-          <button onClick={onClose}>
+          <button className="cursor-pointer" onClick={onClose}>
             <X />
           </button>
         </div>
