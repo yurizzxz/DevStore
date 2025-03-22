@@ -8,16 +8,38 @@ export default function Home() {
   return (
     <main className="min-h-dvh pt-17  pb-15">
       <Banner />
-      <Divisor className="mt-10 opacity-50" />
-      <div className="pt-10 ">
+      <Divisor className="mt-8 opacity-5" />
+      <div className="pt-5 ">
         <Section
-          title="Produtos em Destaque"
-          seeAllLink="/catalog/Produtos em Destaque?id=7"
+          title="Produtos Mais Vendidos"
+          seeAllLink="/catalog/Produtos Mais Vendidos?id=7"
         >
           <CardList
             className="flex space-x-4 w-full flex-wrap"
             categoryId="7"
           />{" "}
+        </Section>
+
+        <Divisor className="my-8 opacity-5" />
+        <Section
+          title={"Promoções do dia"}
+          description="Confira nossos produtos do dia"
+        >
+          <CardList
+            className="flex space-x-4 w-full flex-wrap"
+            categoryId="6"
+          />
+        </Section>
+        <Divisor className="my-8 opacity-5" />
+        <Section
+          title={"Placas de vídeo"}
+          seeAllLink="/catalog/Placas de vídeo?id=2"
+          description="Confira nossos produtos do dia"
+        >
+          <CardList
+            className="flex space-x-4 w-full flex-wrap"
+            categoryId="2"
+          />
         </Section>
         <Divisor className="my-15" />
         <SectionImage
@@ -29,14 +51,15 @@ export default function Home() {
         Se você precisa de mais velocidade para compilar códigos, renderizar projetos ou simplesmente aumentar sua produtividade, temos as melhores opções para você. 
         Invista no seu setup com os melhores componentes do mercado!"
         />
-        <Divisor className="my-15" />
+        <Divisor className="my-8 opacity-5" />
         <Section
-          title={"Promoções do dia"}
+          title={"Processadores"}
+          seeAllLink="/catalog/Processadores?id=1"
           description="Confira nossos produtos do dia"
         >
           <CardList
             className="flex space-x-4 w-full flex-wrap"
-            categoryId="6"
+            categoryId="1"
           />
         </Section>
       </div>
