@@ -17,6 +17,7 @@ export default function Home() {
           <CardList
             className="flex space-x-4 w-full flex-wrap"
             categoryId="7"
+            useSwiper={true}
           />{" "}
         </Section>
 
@@ -28,6 +29,7 @@ export default function Home() {
           <CardList
             className="flex space-x-4 w-full flex-wrap"
             categoryId="6"
+            useSwiper={true}
           />
         </Section>
         <Divisor className="my-8 opacity-5" />
@@ -39,6 +41,7 @@ export default function Home() {
           <CardList
             className="flex space-x-4 w-full flex-wrap"
             categoryId="2"
+            useSwiper={true}
           />
         </Section>
         <Divisor className="my-15" />
@@ -60,6 +63,7 @@ export default function Home() {
           <CardList
             className="flex space-x-4 w-full flex-wrap"
             categoryId="1"
+            useSwiper={true}
           />
         </Section>
       </div>

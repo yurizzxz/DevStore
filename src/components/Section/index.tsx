@@ -20,8 +20,8 @@ export default function Section({
       <div className="max-w-[1440px] mx-auto">
         <header className="mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="pr-0 md:pr-20">
-            <h2 className="text-3xl font-semibold mb-2">{title}</h2>
-            <div className="h-1 bg-purple-bold rounded-5xl mt-4"></div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-2">{title}</h2>
+            <div className="w-70 md:w-full h-1 bg-purple-bold rounded-5xl mt-4"></div>
           </div>
           {seeAllLink && (
             <Link href={seeAllLink}>

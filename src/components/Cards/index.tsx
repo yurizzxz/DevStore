@@ -5,14 +5,20 @@ import Link from "next/link";
 import { type ComponentProps, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { formatCurrency } from "@/app/utils/formatCurrency";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 interface CardProps extends ComponentProps<"button"> {
   children?: React.ReactNode;
   categoryId?: string;
-  categoryId2?: string;
+  useSwiper?: boolean;
 }
 
-export default function CardList({ className, categoryId }: CardProps) {
+export default function CardList({
+  className,
+  categoryId,
+  useSwiper,
+}: CardProps) {
   const [products, setProducts] = useState<
     {
       id: number;
@@ -25,8 +31,6 @@ export default function CardList({ className, categoryId }: CardProps) {
       category2: number;
     }[]
   >([]);
-
-  const formattedPrice = (price: number) => formatCurrency(price);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -73,51 +77,77 @@ export default function CardList({ className, categoryId }: CardProps) {
     fetchProducts();
   }, [categoryId]);
 
+  const renderProductCard = (product: any) => (
+    <Link
+      key={product.id}
+      href={`/product/${product.nome}?id=${
+        product.id
+      }&image=${encodeURIComponent(product.image)}&price=${
+        product.price
+      }&category=${product.category}&description=${
+        product.description
+      }&specifications=${product.specifications}`}
+    >
+      <div className="bg-navbg border border-gray-900 w-[200px] h-[370px] md:w-[230px] md:h-[400px] mt-3 rounded-xl cursor-pointer flex flex-col">
+        <div className="overflow-hidden rounded-t-xl">
+          <Image
+            alt={product.nome}
+            width={200}
+            height={200}
+            src={product.image}
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="card-content p-4 gap-2 flex flex-col flex-grow">
+          <h2 className="card-title text-xl font-semibold line-clamp-2">
+            {product.nome}
+          </h2>
+          <div className="hidden items-center gap-0.5">
+            <Star className="size-4 cursor-pointer text-gold" />
+            <Star className="size-4 cursor-pointer text-gray-500" />
+            <Star className="size-4 cursor-pointer text-gray-500" />
+            <Star className="size-4 cursor-pointer text-gray-500" />
+            <Star className="size-4 cursor-pointer text-gray-500" />
+            <span className="text-xs text-gray-200 ml-2">(0)</span>
+          </div>
+          <p className="card-description text-2xl text-purple font-bold break-words line-clamp-2">
+            {formatCurrency(product.price)}
+          </p>
+          <p className="text-sm text-gray-300 ml-0.5">
+            Em até <b>{formatCurrency(product.price / 10)}</b> em 10x sem juros
+          </p>
+        </div>
+      </div>
+    </Link>
+  );
+
   return (
     <div className={twMerge("", className)}>
-      {products.map((product) => (
-        <Link
-          key={product.id}
-          href={`/product/${product.nome}?id=${
-            product.id
-          }&image=${encodeURIComponent(product.image)}&price=${
-            product.price
-          }&category=${product.category}&description=${
-            product.description
-          }&specifications${product.specifications}`}
+      {useSwiper ? (
+        <Swiper
+          slidesPerView={1.35}
+          breakpoints={{
+            1024: { slidesPerView: 5.8 },
+            768: { slidesPerView: 3.2 },
+            660: { slidesPerView: 3.25 },
+            560: { slidesPerView: 2.55 },
+            490: { slidesPerView: 2.21 },
+            450: { slidesPerView: 2.3 },
+            390: { slidesPerView: 1.8 },
+            340: { slidesPerView: 1.5 },
+          }}
         >
-          <div className="bg-navbg border border-gray-900 w-[250px] h-[420px] mt-3 rounded-xl cursor-pointer flex flex-col">
-            <div className="overflow-hidden rounded-t-xl">
-              <Image
-                alt={product.nome}
-                width={250}
-                height={250}
-                src={product.image}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="card-content p-4 gap-2 flex flex-col flex-grow">
-              <h2 className="card-title text-xl font-semibold line-clamp-2">
-                {product.nome}
-              </h2>
-              <div className="hidden items-center gap-0.5">
-                <Star className="size-4 cursor-pointer text-gold" />
-                <Star className="size-4 cursor-pointer text-gray-500" />
-                <Star className="size-4 cursor-pointer text-gray-500" />
-                <Star className="size-4 cursor-pointer text-gray-500" />
-                <Star className="size-4 cursor-pointer text-gray-500" />
-                <span className="text-xs text-gray-200 ml-2">(0)</span>
-              </div>
-              <p className="card-description text-2xl text-purple font-bold break-words line-clamp-2">
-                {formattedPrice(product.price)}
-              </p>
-              <p className="text-sm text-gray-300 ml-0.5">
-                Em até <b>{formattedPrice(product.price / 10)}</b> em 10x sem
-              </p>
-            </div>
-          </div>
-        </Link>
-      ))}
+          {products.map((product) => (
+            <SwiperSlide key={product.id}>
+              {renderProductCard(product)}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 w-full gap-4">
+          {products.map(renderProductCard)}
+        </div>
+      )}
     </div>
   );
 }

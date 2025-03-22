@@ -40,7 +40,7 @@ const Navbar = () => {
                 src="/devstore.png"
                 width={125}
                 height={120}
-                className="w-50 h-auto"
+                className="md:w-50 h-auto"
               />
             </Link>
 
