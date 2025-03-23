@@ -16,6 +16,7 @@ import {
 import NavLinks from "./nav-links";
 import { useAuth } from "@/context/AuthContext";
 import SearchBar from "../ui/searchbar";
+import Topbar from "./topbar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -29,9 +30,7 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-20 bg-navbg border-b border-gray-800">
-        <div className="p-1 flex justify-center font-semibold bg-purple">
-          <p>20% de desconto na primeira compra</p>
-        </div>
+        <Topbar />
         <nav className="max-w-[1440px] mx-auto px-3 pb-4 ">
           <div className="py-5 w-full flex justify-between items-center ">
             <Link href="/">
@@ -44,7 +43,7 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="hidden md:flex px-12 ml-2 mt-1 w-full">
+            <div className="hidden md:flex px-20 ml-2 mt-1 w-full">
               <SearchBar />
             </div>
 
@@ -115,8 +114,8 @@ const Navbar = () => {
             </InputRoot>
           </div>
           <div className="hidden md:flex items-center justify-center py-2">
-            <ul className="flex flex-row space-x-5 items-center">
-              <NavLinks />
+            <ul className="flex flex-row space-x-10 items-center">
+              <NavLinks linkClass="uppercase" />
             </ul>
           </div>
         </nav>
@@ -136,7 +135,7 @@ const Navbar = () => {
         >
           <X className="size-7" />
         </button>
-        <ul className="flex flex-col ml-5 space-y-6 mt-24">
+        <ul className="flex flex-col ml-5 space-y-5 mt-24">
           <NavLinks />
         </ul>
       </aside>

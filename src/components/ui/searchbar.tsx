@@ -4,10 +4,10 @@ import { InputRoot, InputField, InputIcon } from "./input";
 export default function SearchBar() {
   return (
     <InputRoot>
+      <InputField placeholder="O que você procura?" />
       <InputIcon>
         <Search />
       </InputIcon>
-      <InputField placeholder="O que você procura?" />
     </InputRoot>
   );
 }

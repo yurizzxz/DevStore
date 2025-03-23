@@ -65,7 +65,7 @@ export default function Product({ params, searchParams }: Props) {
       )}
       <div className="mt-8 flex flex-col md:flex-row gap-10 items-center md:items-start">
         <div className="flex flex-col md:flex-row gap-3.5 md:gap-10 w-full">
-          <div className="flex flex-col md:flex-row space-x-0 md:space-x-12 space-y-8 md:space-y-0">
+          <div className="flex w-full flex-col md:flex-row space-x-0 md:space-x-12 space-y-8 md:space-y-0">
             <ProductImage image={image} alt={decodeURIComponent(nome)} />
             <div className="w-full md:w-1/2 flex flex-col">
               <ProductHeader

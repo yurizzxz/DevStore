@@ -95,7 +95,7 @@ export default function CardList({
             width={200}
             height={200}
             src={product.image}
-            className="object-cover w-full h-full"
+            className="object-cover w-[240px] md:h-[220px]"
           />
         </div>
         <div className="card-content p-4 gap-2 flex flex-col flex-grow">

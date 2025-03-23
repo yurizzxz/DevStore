@@ -34,7 +34,7 @@ export default function Footer() {
         </nav>
         <nav className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold mb-3">Produtos</h3>
-          <NavLinks linkClass="hover:underline text-gray-400" />
+          <NavLinks linkClass="hover:underline text-gray-400 " />
         </nav>
 
         <div>

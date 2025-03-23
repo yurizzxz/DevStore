@@ -25,7 +25,7 @@ export function InputIcon({ className, ...props }: InputIcon) {
     <span
       {...props}
       className={twMerge(
-        "text-gray-500 transition-all group-focus-within:text-gray-100 group-[&:not(:has(input:placeholder-shown))]:text-gray-200 group-data-[error=true]:text-red-500",
+        "text-gray-400 transition-all group-focus-within:text-gray-100 group-[&:not(:has(input:placeholder-shown))]:text-gray-200 group-data-[error=true]:text-red-500",
         className
       )}
     />
@@ -38,7 +38,7 @@ export function InputField({ className, ...props }: InputField) {
   return (
     <input
       className={twMerge(
-        "bg-transparent placeholder-gray-600 transition-all outline-0 flex-1 text-gray-200",
+        "bg-transparent placeholder-gray-400 transition-all outline-0 flex-1 text-gray-200",
         className
       )}
       {...props}
