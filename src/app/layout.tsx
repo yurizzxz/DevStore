@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import ClientNavbar from "@/components/ClientNavbar";
-import Footer from "@/components/Footer";
+import ClientFooter from "@/components/ClientFooter";
 
 export const metadata: Metadata = {
   title: "DevStore",
@@ -34,7 +34,7 @@ export default function RootLayout({
 
             <div className="max-w-[1440] mx-auto px-3 md:py-0">{children}</div>
 
-            <Footer />
+            <ClientFooter />
           </AuthProvider>
         </main>
       </body>

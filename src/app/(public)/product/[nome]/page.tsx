@@ -89,7 +89,11 @@ export default function Product({ params, searchParams }: Props) {
       />
       <Divisor className="mt-20 mb-20" />
       <Section title="Talvez você goste">
-        <CardList categoryId={category} className="flex space-x-4 flex-wrap" />
+        <CardList
+          categoryId={category}
+          useSwiper={true}
+          className="flex space-x-4 flex-wrap"
+        />
       </Section>
     </main>
   );

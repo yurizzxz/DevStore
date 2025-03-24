@@ -88,7 +88,7 @@ export default function CardList({
         product.description
       }&specifications=${product.specifications}`}
     >
-      <div className="bg-navbg border border-gray-900 w-[200px] h-[370px] md:w-[230px] md:h-[400px] mt-3 rounded-xl cursor-pointer flex flex-col">
+      <div className="bg-navbg border hover:border-gray-500 transition-all border-gray-900 w-[200px] h-[370px] md:w-[230px] md:h-[400px] mt-3 rounded-xl cursor-pointer flex flex-col">
         <div className="overflow-hidden rounded-t-xl">
           <Image
             alt={product.nome}
