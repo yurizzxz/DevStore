@@ -1,5 +1,5 @@
 "use client";
-import { Star } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { type ComponentProps, useEffect, useState } from "react";
@@ -77,49 +77,76 @@ export default function CardList({
     fetchProducts();
   }, [categoryId]);
 
-  const renderProductCard = (product: any) => (
-    <Link
-      key={product.id}
-      href={`/product/${product.nome}?id=${
-        product.id
-      }&image=${encodeURIComponent(product.image)}&price=${
-        product.price
-      }&category=${product.category}&description=${
-        product.description
-      }&specifications=${product.specifications}`}
-    >
-      <div className="bg-navbg border hover:border-gray-500 transition-all border-gray-900 w-[200px] h-[370px] md:w-[230px] md:h-[400px] mt-3 rounded-xl cursor-pointer flex flex-col">
-        <div className="overflow-hidden rounded-t-xl">
-          <Image
-            alt={product.nome}
-            width={200}
-            height={200}
-            src={product.image}
-            className="object-cover w-[240px] md:h-[220px]"
-          />
-        </div>
-        <div className="card-content p-4 gap-2 flex flex-col flex-grow">
-          <h2 className="card-title text-xl font-semibold line-clamp-2">
-            {product.nome}
-          </h2>
-          <div className="hidden items-center gap-0.5">
-            <Star className="size-4 cursor-pointer text-gold" />
-            <Star className="size-4 cursor-pointer text-gray-500" />
-            <Star className="size-4 cursor-pointer text-gray-500" />
-            <Star className="size-4 cursor-pointer text-gray-500" />
-            <Star className="size-4 cursor-pointer text-gray-500" />
-            <span className="text-xs text-gray-200 ml-2">(0)</span>
+  const renderProductCard = (product: any) => {
+    const isDiscounted = product.category === 6 || product.category2 === 6;
+    const discountedPrice = isDiscounted ? product.price * 0.8 : product.price;
+
+    return (
+      <Link
+        key={product.id}
+        href={`/product/${product.nome}?id=${
+          product.id
+        }&image=${encodeURIComponent(product.image)}&price=${
+          isDiscounted ? product.price * 0.8 : product.price
+        }&category=${product.category}&description=${
+          product.description
+        }&specifications=${product.specifications}`}
+      >
+        <div className="bg-navbg border hover:border-gray-500 transition-all border-gray-900 w-[200px] h-[370px] md:w-[230px] md:h-[400px] mt-3 rounded-xl cursor-pointer flex flex-col relative">
+          {categoryId === "6" &&
+            (product.category === 6 || product.category2 === 6) && (
+              <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 text-xs font-bold flex items-center gap-1 rounded-lg">
+                <AlertCircle className="size-4" /> IMPERDÍVEL
+              </div>
+            )}
+          <div className="overflow-hidden relative rounded-t-xl">
+            {isDiscounted && (
+              <>
+                <div className="px-2.5 py-1.5 absolute right-0 rounded-bl-xl bg-danger">
+                  <p className="text-sm font-bold">-20%</p>
+                </div>
+                <Image
+                  alt={product.nome}
+                  width={200}
+                  height={200}
+                  src={product.image}
+                  className="object-cover w-[250px] md:h-[220px]"
+                />
+              </>
+            )}
+            <Image
+              alt={product.nome}
+              width={200}
+              height={200}
+              src={product.image}
+              className="object-cover w-[240px] md:h-[220px]"
+            />
           </div>
-          <p className="card-description text-2xl text-purple font-bold break-words line-clamp-2">
-            {formatCurrency(product.price)}
-          </p>
-          <p className="text-sm text-gray-300 ml-0.5">
-            Em até <b>{formatCurrency(product.price / 10)}</b> em 10x sem juros
-          </p>
+          <div className="card-content p-4 gap-2 flex flex-col flex-grow">
+            <h2 className="card-title text-xl font-semibold line-clamp-2">
+              {product.nome}
+            </h2>
+            <p className="card-description text-2xl flex flex-col text-purple font-bold break-words line-clamp-2">
+              {isDiscounted ? (
+                <>
+                  <span className="line-through text-sm text-gray-400 mr-2">
+                    {formatCurrency(product.price)}
+                  </span>
+                  {formatCurrency(discountedPrice)}
+                </>
+              ) : (
+                formatCurrency(product.price)
+              )}
+            </p>
+            <p className="text-xs text-gray-300 ml-0.5">
+              Em até <b>{formatCurrency(discountedPrice / 10)}</b> em 10x sem
+              juros
+            </p>
+          </div>
         </div>
-      </div>
-    </Link>
-  );
+      </Link>
+    );
+  };
 
   return (
     <div className={twMerge("", className)}>
