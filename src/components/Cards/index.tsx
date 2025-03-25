@@ -87,7 +87,7 @@ export default function CardList({
         href={`/product/${product.nome}?id=${
           product.id
         }&image=${encodeURIComponent(product.image)}&price=${
-          isDiscounted ? product.price * 0.8 : product.price
+          isDiscounted ? discountedPrice : product.price
         }&category=${product.category}&description=${
           product.description
         }&specifications=${product.specifications}`}

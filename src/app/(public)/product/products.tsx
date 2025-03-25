@@ -4,6 +4,7 @@ import { Plus, ShoppingBag, ShoppingCart, Truck } from "lucide-react";
 import Image from "next/image";
 import { AccordionBody, AccordionItem, AccordionRoot } from "./accordion";
 import { Counter } from "./couter";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 
 interface ProductHeaderProps {
   nome: string;
@@ -12,6 +13,11 @@ interface ProductHeaderProps {
 }
 
 export function ProductHeader({ nome, formattedPrice }: ProductHeaderProps) {
+  const priceValue = parseFloat(
+    formattedPrice.replace("R$", "").replace(/\./g, "").replace(",", ".")
+  );
+  const parcelPrice = priceValue / 10;
+
   return (
     <div className="mb-1">
       <div className="mb-3 flex flex-col">
@@ -32,19 +38,11 @@ export function ProductHeader({ nome, formattedPrice }: ProductHeaderProps) {
         À vista no pix com <b>10% de desconto</b>
       </p>
       <p className="text-xl text-gray-300 ml-0.5">
-        Em até{" "}
-        <b>
-          R${" "}
-          {(
-            Number.parseFloat(formattedPrice.replace("R$", "").trim()) / 10
-          ).toFixed(2)}
-        </b>{" "}
-        em 10x sem juros no cartão
+        Em até <b>{formatCurrency(parcelPrice)}</b> em 10x sem juros no cartão
       </p>
     </div>
   );
 }
-
 interface ProductImageProps {
   image: string;
   alt: string;
