@@ -75,7 +75,7 @@ export default function Auth() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="bg-[#4400CD] flex order-2 max-w-2xl rounded-r-2xl h-175">
+      <div className="bg-[#4400CD] hidden md:flex order-2 max-w-2xl rounded-r-2xl h-175">
         <Image
           src="/vetor1.svg"
           alt="Login"
@@ -84,13 +84,13 @@ export default function Auth() {
           className=""
         />
       </div>
-      <div className="w-full flex flex-col justify-center max-w-xl h-175 p-18 bg-navbg rounded-l-2xl border-y border-l border-gray-800">
+      <div className="w-full flex flex-col justify-center max-w-xl h-175 p-5 md:p-18 bg-navbg rounded-l-2xl border-y border-l border-gray-800">
         <Image
           src="/devstore.png"
           alt="Logo DevStore"
           width={140}
           height={100}
-          className=""
+          className="mx-auto md:mx-0"
         />
         <h2 className="text-2xl mt-5 font-semibold text-left text-gray-200">
           {isRegister

@@ -26,7 +26,6 @@ interface Props {
     image: string;
     description: string;
     specifications: string;
-    isDisconted: string;
   }>;
 }
 

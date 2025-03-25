@@ -53,17 +53,22 @@ const Navbar = () => {
                 className="cursor-pointer flex items-center gap-2 "
                 onClick={() => (user ? setDropdownOpen((prev) => !prev) : null)}
               >
-                <User className="size-7 flex-shrink-0" />
                 {user ? (
-                  <div className="flex flex-col">
-                    <small className="text-left hidden md:block">Olá!</small>
-                    <span className="hidden md:block text-md text-purple font-semibold max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
-                      {user.name}
-                    </span>
-                  </div>
+                  <>
+                    <User className="size-7 flex-shrink-0" />
+                    <div className="flex flex-col">
+                      <small className="text-left hidden md:block">Olá!</small>
+                      <span className="hidden md:block text-md text-purple font-semibold max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
+                        {user.name}
+                      </span>
+                    </div>
+                  </>
                 ) : (
-                  <Link href="/login" className="hidden md:block text-md">
-                    Entrar/Criar Conta
+                  <Link href="/login">
+                    <User className="size-7 flex-shrink-0" />
+                    <p className="hidden md:block text-md">
+                      Entrar/Criar Conta
+                    </p>
                   </Link>
                 )}
               </button>
