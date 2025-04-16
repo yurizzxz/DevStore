@@ -84,9 +84,22 @@ export default function CartList() {
 
       <Divisor />
 
-      <div className="flex-shrink-0 px-5  bg-black">
+      <div className="flex-shrink-0 px-5 pt-1 pb-3  bg-black">
         <p className="font-semibold mb-2 text-xl">Resumo do pedido</p>
-        <div className="flex text-lg justify-between mb-4">
+        <div className="mb-2 ">
+          {cartItems.map((item, index) => (
+            <>
+              <p
+                key={index}
+                className="text-sm flex items-center justify-between text-gray-300"
+              >
+                {item.quantity} x {item.nome.slice(0, 40) + "..."}
+                <span> {formatCurrency(item.price)}</span>
+              </p>
+            </>
+          ))}
+        </div>
+        <div className="flex text-lg justify-between mb-3">
           <p className="">Subtotal</p>
           <p>
             {formatCurrency(

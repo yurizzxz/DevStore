@@ -15,12 +15,12 @@ export default function Catalog({ params, searchParams }: Props) {
   const categoryId = searchParams?.id;
 
   return (
-    <main className="min-h-dvh py-8 pt-60 md:pt-60">
-      <div className="flex flex-row gap-4">
+    <main className="min-h-screen py-8 pt-60 md:pt-60 ">
+      <div className="flex flex-row gap-4 overflow-x-hidden">
         <div className="w-full">
           <h1 className="text-4xl mb-3 font-bold">{nomeTratado}</h1>
           <CardList
-            className="space-x-5 flex flex-wrap justify-start w-full"
+            className="space-x-5 flex flex-wrap justify-start w-full "
             categoryId={categoryId}
           />
         </div>

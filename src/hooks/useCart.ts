@@ -29,6 +29,7 @@ export const useCart = () => {
 			setMessage(null)
 		}, 3000)
 	}
+	
 
 	return {
 		cart,

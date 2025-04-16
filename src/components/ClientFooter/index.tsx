@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Footer from "../Footer";
+import Footer from "../ui/Footer";
 
 const ClientFooter = () => {
   const pathname = usePathname();
