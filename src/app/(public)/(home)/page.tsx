@@ -1,6 +1,6 @@
 "use client";
 
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import CardList from "@/components/Cards";
 import Divisor from "@/components/ui/divisor";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import Banner from "@/components/ui/banner";
 
 interface SectionData {
   id: number;
-  titulo: string;
+  nome: string;
   tipo: string;
   categoriaId?: number;
   imagem?: string;
@@ -32,8 +32,8 @@ export default function Home() {
             <div key={section.id}>
               <Divisor className="my-8 opacity-5" />
               <Section
-                title={section.titulo}
-                seeAllLink={`/catalog/${section.titulo}?id=${section.categoriaId}`}
+                title={section.nome}
+                seeAllLink={`/catalog/${section.nome}?id=${section.categoriaId}`}
               >
                 <CardList
                   className="flex space-x-4 w-full flex-wrap"

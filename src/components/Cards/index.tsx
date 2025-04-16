@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ComponentProps, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { formatCurrency } from "@/app/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 

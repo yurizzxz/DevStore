@@ -2,9 +2,11 @@ import { Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ButtonPrimary } from "./button";
+import Divisor from "./divisor";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 export default function CartList() {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const [cartItems, setCartItems] = useState<any[]>([]);
 
   useEffect(() => {
@@ -22,12 +24,11 @@ export default function CartList() {
   };
 
   return (
-    <div>
-      <div className="max-h-150 overflow-y-auto">
+    <div className="flex flex-col h-[calc(100vh-100px)]">
+      <div className="flex-grow overflow-y-auto px-5">
         {cartItems.length > 0 ? (
           cartItems.map((item, index) => (
             <Link
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={index}
               href={{
                 pathname: `/product/${item.nome}`,
@@ -42,7 +43,7 @@ export default function CartList() {
                 },
               }}
             >
-              <div className="px-5 pt-3 pb-5 border-b border-gray-700 flex relative items-center space-x-4">
+              <div className="pt-3 pb-5 border-b border-gray-700 flex relative items-center space-x-4">
                 <div>
                   <Image
                     alt={item.nome}
@@ -62,7 +63,7 @@ export default function CartList() {
                   </h3>
                   <button
                     type="button"
-                    className="absolute right-5.5 bottom-5.5 cursor-pointer"
+                    className="absolute right-1 bottom-5.5 cursor-pointer"
                     onClick={(e) => {
                       e.preventDefault();
                       handleRemoveItem(index);
@@ -75,10 +76,25 @@ export default function CartList() {
             </Link>
           ))
         ) : (
-          <p className="px-6 mt-5 text-gray-400">
+          <p className="mt-5 text-gray-400">
             Nenhum item adicionado no carrinho.
           </p>
         )}
+      </div>
+
+      <Divisor />
+
+      <div className="flex-shrink-0 px-5  bg-black">
+        <p className="font-semibold mb-2 text-xl">Resumo do pedido</p>
+        <div className="flex text-lg justify-between mb-4">
+          <p className="">Subtotal</p>
+          <p>
+            {formatCurrency(
+              cartItems.reduce((total, item) => total + item.price, 0)
+            )}
+          </p>
+        </div>
+        <ButtonPrimary className="w-full">Finalizar compra</ButtonPrimary>
       </div>
     </div>
   );

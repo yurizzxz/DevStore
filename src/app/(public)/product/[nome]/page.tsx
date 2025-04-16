@@ -1,6 +1,6 @@
 "use client";
 import CardList from "@/components/Cards";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import Divisor from "@/components/ui/divisor";
 import { useCart } from "@/hooks/useCart";
 import { useCounter } from "@/hooks/useCounter";
@@ -12,7 +12,7 @@ import {
   ProductHeader,
   ProductImage,
 } from "../products";
-import { formatCurrency } from "@/app/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface Params {
   nome: string;
@@ -55,11 +55,13 @@ export default function Product({ params, searchParams }: Props) {
   return (
     <main className="min-h-dvh pb-8 pt-45 md:pt-55">
       {message && (
-        <div className="bg-gray-900 border border-gray-800 text-gray-100 p-4 rounded-lg shadow-lg absolute bottom-4 right-4 max-w-xs transition-transform transform duration-300 ease-in-out">
-          <p className="font-semibold text-xl">Sucesso!</p>
-          <div className="flex items-center gap-2 mt-2">
-            <ShoppingCart />
-            <p>{message}</p>
+        <div className="absolute bottom-4 right-4">
+          <div className="bg-gray-900 border border-gray-800 text-gray-100 p-4 rounded-lg shadow-lg  max-w-xs transition-transform transform duration-300 ease-in-out">
+            <p className="font-semibold text-xl">Sucesso!</p>
+            <div className="flex items-center gap-2 mt-2">
+              <ShoppingCart />
+              <p>{message}</p>
+            </div>
           </div>
         </div>
       )}

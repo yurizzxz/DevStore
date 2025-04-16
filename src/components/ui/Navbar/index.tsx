@@ -5,17 +5,17 @@ import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { DropdownBody, DropdownLink, DropdownRoot } from "../ui/dropdown-menu";
-import { InputField, InputIcon, InputRoot } from "../ui/input";
+import { DropdownBody, DropdownLink, DropdownRoot } from "../dropdown-menu";
+import { InputField, InputIcon, InputRoot } from "../input";
 import {
   SidebarBody,
   SidebarContent,
   SidebarHeader,
   SidebarRoot,
-} from "../ui/sidebar";
+} from "../sidebar";
 import NavLinks from "./nav-links";
 import { useAuth } from "@/context/AuthContext";
-import SearchBar from "../ui/searchbar";
+import SearchBar from "../searchbar";
 import Topbar from "./topbar";
 
 const Navbar = () => {
@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="relative flex items-center space-x-3 md:gap-4 md:space-x-0">
               <button
                 type="button"
-                className="cursor-pointer flex items-center gap-2 "
+                className="cursor-pointer flex flex-row items-center gap-2 "
                 onClick={() => (user ? setDropdownOpen((prev) => !prev) : null)}
               >
                 {user ? (
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </div>
                   </>
                 ) : (
-                  <Link href="/login">
+                  <Link href="/login" className="flex items-center gap-2">
                     <User className="size-7 flex-shrink-0" />
                     <p className="hidden md:block text-md">
                       Entrar/Criar Conta
@@ -120,7 +120,7 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center justify-center py-2">
             <ul className="flex flex-row space-x-10 items-center">
-              <NavLinks linkClass="uppercase" />
+              <NavLinks />
             </ul>
           </div>
         </nav>

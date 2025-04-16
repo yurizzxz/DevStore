@@ -6,7 +6,7 @@ export async function GET() {
   try {
     connection = await getConnection();
     const [rows] = await connection.query(
-      "SELECT * FROM home_sections WHERE ativo = true ORDER BY ordem"
+      "SELECT * FROM sections WHERE ativo = true ORDER BY ordem"
     );
     return NextResponse.json(rows);
   } catch (error) {

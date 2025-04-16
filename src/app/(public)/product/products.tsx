@@ -4,7 +4,7 @@ import { Plus, ShoppingBag, ShoppingCart, Truck } from "lucide-react";
 import Image from "next/image";
 import { AccordionBody, AccordionItem, AccordionRoot } from "./accordion";
 import { Counter } from "./couter";
-import { formatCurrency } from "@/app/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface ProductHeaderProps {
   nome: string;
